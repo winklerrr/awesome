@@ -17,9 +17,7 @@ ssh-add ./id_rsa
 
 ## Git Management
 
-**Change remote URL**
-
-Source: [github](https://help.github.com/en/github/using-git/changing-a-remotes-url)
+**Change remote URL from https to ssh** (Source: [github](https://help.github.com/en/github/using-git/changing-a-remotes-url))
 
 Show remote urls:
 
@@ -44,8 +42,6 @@ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 
 ## Processes Management
 
-Source: [howtogeek](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
-
 Show running processes:
 
 ```
@@ -62,7 +58,7 @@ pgrep
 pkill
 ```
 
-**How to kill a process**
+**How to kill a process** (Source: [howtogeek](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/))
 
 Use `pgrep [name]` or `pkill [name]`:
 
