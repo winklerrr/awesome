@@ -1,10 +1,17 @@
-# Useful Commands & Tools
+# Useful Commands & Tools - The Awesome List!
 
 Keep in mind: 
 
 > "Reading is thinking with someone else's head" - Arthur Schopenhauer
 
 So use `man`!
+
+## Basic Linux Management
+
+```
+which python
+type python
+```
 
 ## SSH & Key Management
 
@@ -22,6 +29,7 @@ Basic git commands:
 ```
 git fetch
 git pull
+git push
 
 git status
 git log
@@ -36,11 +44,11 @@ git branch -d <branch-name>  # delete branch
 git checkout -b <new-branch>  # create and checkout new branch
 ```
 
-**Checking out a remote branch**
+**Checking out a remote branch** (Source: [atlassian](https://www.atlassian.com/git/tutorials/using-branches/git-checkout))
 
 ```
 git fetch --all
-git checkout <remote-branch>
+git checkout --track <remote-branch>  # create a new local branch which tracks the remote one
 ```
 
 **Change remote URL from https to ssh** (Source: [github](https://help.github.com/en/github/using-git/changing-a-remotes-url))
@@ -57,8 +65,17 @@ Change remote url:
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 ```
 
+**Only show the current branch**
 
-### tig
+```
+git branch | grep '*'
+```
+
+### [tig](https://jonas.github.io/tig/)
+
+```
+H  # help view
+```
 
 ## Window & Session Management
 
@@ -66,6 +83,26 @@ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 
 Reminder: to paste from clipboard use `SHIFT`+`RIGHT CLICK`
 
+`PRE` stands for the tmux prefix (normally `STRG`+`b`, maybe changed to `STRG`+`a`).
+
+**Creating and managing sessions**
+
+```
+tmux new -s name  # create new session with name
+tmux ls  # show all sessions
+tmux a  # append last session
+```
+
+**Window management**
+
+```
+```
+
+**Pane management**
+
+```
+PRE + z  # toggle pane zoom
+```
 
 
 ## Processes Management
