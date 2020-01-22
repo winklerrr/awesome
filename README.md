@@ -18,7 +18,8 @@ So use `man`!
 
 ## Processes Management
 
-[howtogeek](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
+**Sources:**
+- [howtogeek](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
 
 Show running processes:
 
@@ -31,6 +32,7 @@ ps -A
 Directly grep a PID or kill a process:
 
 ```
+kill PID
 pgrep
 pkill
 ```
