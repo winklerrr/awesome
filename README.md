@@ -6,6 +6,15 @@ Keep in mind:
 
 So use `man`!
 
+## SSH & Key Management
+
+Add key to ssh:
+
+```
+eval `ssh-agent`
+ssh-add ./id_rsa
+```
+
 ## Git Management
 
 ### tig
