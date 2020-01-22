@@ -17,6 +17,23 @@ ssh-add ./id_rsa
 
 ## Git Management
 
+**Change remote URL**
+
+Source: [github](https://help.github.com/en/github/using-git/changing-a-remotes-url)
+
+Show remote urls:
+
+```
+git remote -v
+```
+
+Change remote url:
+
+```
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+```
+
+
 ### tig
 
 ## Window & Session Management
@@ -27,8 +44,7 @@ ssh-add ./id_rsa
 
 ## Processes Management
 
-**Sources:**
-- [howtogeek](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
+Source: [howtogeek](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
 
 Show running processes:
 
