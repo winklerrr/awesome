@@ -1,6 +1,10 @@
 # Useful Commands & Tools
 
-Keep in mind: "Reading is thinking with someone else's head" - Arthur Schopenhauer.
+Keep in mind: 
+
+> Reading is thinking with someone else's head
+- Arthur Schopenhauer
+
 So use `man`!
 
 ## Git Management
