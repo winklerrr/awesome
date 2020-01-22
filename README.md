@@ -33,6 +33,8 @@ git push
 
 git status
 git log
+
+git commit -m "message"
 ```
 
 Working with branches:
@@ -42,6 +44,13 @@ git branch  # show local branches and currently checked out branch
 git branch -l -r  # list all remote branches
 git branch -d <branch-name>  # delete branch
 git checkout -b <new-branch>  # create and checkout new branch
+```
+
+**Set git credentials**
+
+```
+git config --global user.email "you@domain.com"
+git config --global user.name "Sandro Winkler"
 ```
 
 **Checking out a remote branch** (Source: [atlassian](https://www.atlassian.com/git/tutorials/using-branches/git-checkout))
@@ -75,13 +84,18 @@ git branch | grep '*'
 
 ```
 H  # help view
+s  # status view
+enter  # to show diff
+
+u  # stage/unstage whole file
+1  # stage single line
 ```
 
 ## Window & Session Management
 
 ### tmux
 
-Reminder: to paste from clipboard use `SHIFT`+`RIGHT CLICK`
+Reminder: to select text and to paste from clipboard hold `SHIFT` while pressing `LEFT CLICK` or `RIGHT CLICK`.
 
 `PRE` stands for the tmux prefix (normally `STRG`+`b`, maybe changed to `STRG`+`a`).
 
