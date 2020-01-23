@@ -10,3 +10,6 @@ Maxin Cardamom:
 Rich Hickey:
 [Simple Made Easy 2012](https://www.youtube.com/watch?v=oytL881p-nQ)
 
+John Hughes:
+[Why Functional Programming Matters](https://www.youtube.com/watch?v=XrNdvWqxBvA)
+
