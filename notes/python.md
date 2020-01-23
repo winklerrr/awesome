@@ -1,4 +1,4 @@
-# Python Awesome List
+# Awesome Python
 
 ## Virtual Env
 
