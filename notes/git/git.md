@@ -10,10 +10,11 @@ git push
 git status
 git log
 
+git reset HEAD~1  # remove commits
 git commit -m "message"
 ```
 
-Working with branches:
+**Working with branches**
 
 ```
 git branch  # show local branches and currently checked out branch
