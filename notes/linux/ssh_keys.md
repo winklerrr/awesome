@@ -1,4 +1,4 @@
-# Awesome SSH & Key Management
+# Awesome SSH & Key Notes
 
 Add a key to ssh:
 
