@@ -2,6 +2,8 @@
 
 Source: [tig](https://jonas.github.io/tig/)
 
+## Key Shortcuts
+
 ```
 H  # help view
 s  # status view
