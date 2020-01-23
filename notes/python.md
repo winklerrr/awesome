@@ -22,8 +22,9 @@ After setting up and activating the virtual environment,
 install all necessary modules needed for the project(s).
 
 **Hint:** 
-The virtual environment shouldn't be commited to version control, 
+The virtual environment shouldn't be commited to version control 
 to avoid problems when developing on Windows and Linux systems simillarly.
+So add the virtual environment to your `.gitignore` file.
 
 To keep track of the installed Python modules and dependencies,
 use a `requirenments.txt` which is then commited to the version control.
