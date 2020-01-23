@@ -1,5 +1,8 @@
 # Awesome Talks
 
+Randy Pausch:
+[The Last Lecture](https://www.youtube.com/watch?v=j7zzQpvoYcQ)
+
 ## Vim
 
 Maxin Cardamom:
