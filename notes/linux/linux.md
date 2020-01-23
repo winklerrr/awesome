@@ -1,4 +1,4 @@
-# Awesome Linux
+# Awesome Linux Notes
 
 ## Basic Linux Management
 
