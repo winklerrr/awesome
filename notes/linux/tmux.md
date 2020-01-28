@@ -19,11 +19,37 @@ tmux a  # append last session
 ## Window management
 
 ```
+PRE + c  # create new window
+PRE + &  # close current window
+
+PRE + p  # switch to previous window
+PRE + n  # switch to next window
+PRE + 0..9  # switch to window
 ```
 
 ## Pane management
 
+Splitting panes:
+
 ```
+PRE + %  # vertically
+PRE + "  # horizontally
+```
+
+Switching panes:
+
+```
+PRE + q  # show pane numbers
+PRE + q + 0..9  # switch to pane
+
+PRE + ;  # switch to last active pane
+```
+
+Other stuff:
+
+```
+PRE + x  # close current pane
+PRE + !  # convert pane into window
 PRE + z  # toggle pane zoom
 ```
 
@@ -32,6 +58,6 @@ PRE + z  # toggle pane zoom
 ```
 :resize-pane -D 10 
 :resize-pane -U 10 
-resi
+:resize-pane -L 10
 :resize-pane -R 10
 ```
