@@ -53,7 +53,7 @@ PRE + !  # convert pane into window
 PRE + z  # toggle pane zoom
 ```
 
-**Resizing the current active pane**
+**Resizing the current pane**
 
 ```
 :resize-pane -D 10 
