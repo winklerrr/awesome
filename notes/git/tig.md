@@ -22,7 +22,10 @@ Q  # close all
 ```
 h  # help
 m  # main
+
 s  # status
+c  # stage
+
 t  # tree
 y  # stash
 ```
@@ -30,7 +33,7 @@ y  # stash
 ### Main View
 
 ```
-c  # cherry pick commit
+C  # cherry pick commit
 ```
 
 ### Stage View
