@@ -25,6 +25,18 @@ git commit --amend  # adding staged changes to last commit
 git reset HEAD~1  # remove commits
 ```
 
+**Rename commit messages**
+
+1. To rename one or more of the last `n` commits use:
+
+```
+git rebase -i HEAD~n
+```
+
+2. Replace the keyword `pick` in front of the commits which should be renamed by the keyword `reword` (short `r`).
+3. Save and close the commit list file. 
+4. The resulting commit files open automatically, change the commit message.
+
 ## Branches
 
 ```
