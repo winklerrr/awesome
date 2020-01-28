@@ -23,11 +23,24 @@ git branch -d <branch-name>  # delete branch
 git checkout -b <new-branch>  # create and checkout new branch
 ```
 
-**Set git credentials**
+**Check and set git credentials**
+
+To check your current git credentials:
 
 ```
-git config --global user.email "you@domain.com"
+git config --list  # to see all the config
+
+# to just check name and email
+git config user.name
+git config user.email
+```
+
+To set new credentials use:
+
+```
+# --global is optional
 git config --global user.name "Sandro Winkler"
+git config --global user.email "you@domain.com"
 ```
 
 **Checking out a remote branch** (Source: [atlassian](https://www.atlassian.com/git/tutorials/using-branches/git-checkout))
