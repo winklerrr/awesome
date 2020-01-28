@@ -1,6 +1,6 @@
 # Awesome Git
 
-Basic git commands:
+## Basics
 
 ```
 git fetch
@@ -9,12 +9,23 @@ git push
 
 git status
 git log
-
-git reset HEAD~1  # remove commits
-git commit -m "message"
 ```
 
-**Working with branches**
+## Commits
+
+```
+git commit -m "message"
+git commit -a  # adding all changes to stage
+git commit --amend  # adding staged changes to last commit
+```
+
+**Unstaging commits**
+
+```
+git reset HEAD~1  # remove commits
+```
+
+## Branches
 
 ```
 git branch  # show local branches and currently checked out branch
@@ -22,6 +33,21 @@ git branch -l -r  # list all remote branches
 git branch -d <branch-name>  # delete branch
 git checkout -b <new-branch>  # create and checkout new branch
 ```
+
+**Only show the current branch**
+
+```
+git branch | grep '*'
+```
+
+**Checking out a remote branch** (Source: [atlassian](https://www.atlassian.com/git/tutorials/using-branches/git-checkout))
+
+```
+git fetch --all
+git checkout --track <remote-branch>  # create a new local branch which tracks the remote one
+```
+
+## Configs
 
 **Check and set git credentials**
 
@@ -43,13 +69,6 @@ git config --global user.name "Sandro Winkler"
 git config --global user.email "you@domain.com"
 ```
 
-**Checking out a remote branch** (Source: [atlassian](https://www.atlassian.com/git/tutorials/using-branches/git-checkout))
-
-```
-git fetch --all
-git checkout --track <remote-branch>  # create a new local branch which tracks the remote one
-```
-
 **Change remote URL from https to ssh** (Source: [github](https://help.github.com/en/github/using-git/changing-a-remotes-url))
 
 Show remote urls:
@@ -62,10 +81,4 @@ Change remote url:
 
 ```
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
-```
-
-**Only show the current branch**
-
-```
-git branch | grep '*'
 ```
