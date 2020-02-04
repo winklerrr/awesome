@@ -1,0 +1,2 @@
+# To use vim as default editor (for git, etc.)
+export EDITOR=vim
