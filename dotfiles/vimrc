@@ -1,15 +1,21 @@
-# default colorscheme
+" default colorscheme
 colo koehler
 
-# syntax highlighting
+" syntax highlighting
 syntax on
 
-# convert new tabs to spaces
+" convert new tabs to spaces
 set expandtab
 
-# set width of tabs
+" set width of tabs
 set shiftwidth=2
 set softtabstop=2
 
-# activate autoindent
+" activate autoindent
 set autoindent
+
+" show all whitespace characters
+set list
+
+" show even carriage returns ^M
+""e ++ff=unix
