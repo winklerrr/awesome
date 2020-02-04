@@ -1,0 +1,15 @@
+# default colorscheme
+colo koehler
+
+# syntax highlighting
+syntax on
+
+# convert new tabs to spaces
+set expandtab
+
+# set width of tabs
+set shiftwidth=2
+set softtabstop=2
+
+# activate autoindent
+set autoindent
