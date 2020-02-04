@@ -37,6 +37,21 @@ git rebase -i HEAD~n
 3. Save and close the commit list file. 
 4. The resulting commit files open automatically, change the commit message.
 
+
+**Pushing a detached head** (Source: [redgreenrepeat.com](http://redgreenrepeat.com/2018/06/08/how-to-push-a-detached-git-head/))
+
+The general command looks like:
+
+```
+git push <remote name> HEAD:<remote branch name>
+```
+
+For example:
+
+```
+git push origin HEAD:testing
+```
+
 ## Branches
 
 ```
@@ -52,7 +67,7 @@ git checkout -b <new-branch>  # create and checkout new branch
 git branch | grep '*'
 ```
 
-**Checking out a remote branch** (Source: [atlassian](https://www.atlassian.com/git/tutorials/using-branches/git-checkout))
+**Checking out a remote branch** (Source: [atlassian.com](https://www.atlassian.com/git/tutorials/using-branches/git-checkout))
 
 ```
 git fetch --all
@@ -81,7 +96,7 @@ git config --global user.name "Sandro Winkler"
 git config --global user.email "you@domain.com"
 ```
 
-**Change remote URL from https to ssh** (Source: [github](https://help.github.com/en/github/using-git/changing-a-remotes-url))
+**Change remote URL from https to ssh** (Source: [github.com](https://help.github.com/en/github/using-git/changing-a-remotes-url))
 
 Show remote urls:
 
