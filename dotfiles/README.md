@@ -1,6 +1,6 @@
 # Awesome dotfiles
 
-## Using the dotfiles
+## Installing the dotfiles
 
 1. Clone the repo to the `awesome` folder in your home path:
 
