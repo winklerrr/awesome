@@ -16,4 +16,7 @@ echo "source ~/awesome/dotfiles/bashrc" >> ~/.bashrc && source ~/.bashrc
 
 # for .vimrc
 echo "source ~/awesome/dotfiles/vimrc" >> ~/.vimrc && source ~/.vimrc
+
+# for .tmux.conf
+echo "source ~/awesome/dotfiles/tmux.conf" >> ~/.tmux.conf && tmux source-file ~/.tmux.conf
 ```
