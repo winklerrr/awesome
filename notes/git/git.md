@@ -37,6 +37,13 @@ git rebase -i HEAD~n
 3. Save and close the commit list file. 
 4. The resulting commit files open automatically, change the commit message.
 
+**Showing the changes of a commit** (Source: [stackoverflow.com](https://stackoverflow.com/questions/17563726/how-to-see-the-changes-in-a-git-commit))
+
+Use the `COMMIT` hash:
+
+```
+git show COMMIT
+```
 
 **Pushing a detached head** (Source: [redgreenrepeat.com](http://redgreenrepeat.com/2018/06/08/how-to-push-a-detached-git-head/))
 
