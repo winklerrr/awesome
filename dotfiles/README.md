@@ -15,7 +15,7 @@ git clone git@github.com:winklerrr/awesome.git ~/awesome
 echo "source ~/awesome/dotfiles/bashrc" >> ~/.bashrc && source ~/.bashrc
 
 # for .vimrc
-echo "source ~/awesome/dotfiles/vimrc" >> ~/.vimrc && source ~/.vimrc
+echo "source ~/awesome/dotfiles/vimrc" >> ~/.vimrc
 
 # for .tmux.conf
 echo "source ~/awesome/dotfiles/tmux.conf" >> ~/.tmux.conf && tmux source-file ~/.tmux.conf
