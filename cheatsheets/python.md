@@ -1,4 +1,4 @@
-# Awesome Python
+# Awesome Python Cheatsheet
 
 ## Virtual Env
 
