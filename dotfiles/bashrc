@@ -119,9 +119,11 @@ alias gpsh="git push"
 alias gr="git rebase"
 alias gri="git rebase -i"
 
+alias gurl="printf 'URL: ' && git config remote.origin.url"
+alias gbranch="printf 'Branch: ' && git branch | grep '*' | cut -c 3-"
 alias gname="printf 'Name: ' && git config user.name"
 alias gmail="printf 'Mail: ' && git config user.email"
-alias ginfo="gname && gmail"
+alias ginfo="gurl && gbranch && gname && gmail"
 
 # CONFIGS
 alias configs="cd '${THIS_DIR}'"
