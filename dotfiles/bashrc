@@ -5,6 +5,10 @@
 #############################################
 
 
+# path to this file
+THIS="$BASH_SOURCE"
+
+
 ################### SETTINGS ################
 
 # use vim as default editor (for git, etc.)
@@ -13,9 +17,35 @@ export EDITOR=vim
 
 ################## FUNCTIONS ################
 
-function mkdir {
-  
+function cd {
+  builtin cd $1 && ls
+}
 
+function mkdir {
+  if [ $# -eq 1 ]; then
+    /bin/mkdir $1 && cd $1
+  else
+    /bin/mkdir "$@"
+  fi
+}
+
+# git commit
+function gc {
+  if [ -z "$1" ]; then
+    git commit 
+  else 
+    git commit -m "$*"
+  fi
+}
+
+# git add all and commit
+function gac {
+  git add . && gc "$*"
+}
+
+# git commit with --amend
+function gca {
+  git commit --amend
 }
 
 
@@ -24,10 +54,50 @@ function mkdir {
 # run the `alias` command
 
 # unalias everything before aliasing again
-unalias -m "*"
+unalias -a
 
 # general
-alias ls="ls --color=auto"
+alias c=clear
+alias md=mkdir
 
-alias mk=mkdir
+# list directory
+alias ls="ls --color=auto -lAp"  # -l for table, -A to show all except `.` and `..`, -p to add `/` after directories
 
+alias l=ls
+alias ll="ls -sS"  # show and order according to file size
+
+# change dir
+alias ~="cd ~"
+alias -- -="cd -"  # use -- to indicate end of options
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# git
+alias g=git
+
+alias gs="git status"
+alias gd="git diff"
+alias gl="git log"
+
+alias ga="git add"
+alias ga.="git add ."
+alias gaa="git add -A"
+
+alias gf="git fetch"
+alias gp="git pull"
+alias gpsh="git push"
+
+alias gr="git rebase"
+alias gri="git rebase -i"
+
+alias gname="printf 'Name: ' && git config user.name"
+alias gmail="printf 'Mail: ' && git config user.email"
+alias ginfo="gname && gmail"
+
+# bashrc
+alias reload="source '${THIS}' && echo 'AWESOME BASHRC reloaded'"
+alias bashrc="vim '${THIS}' && reload"
