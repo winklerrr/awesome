@@ -70,9 +70,13 @@ git checkout -b <new-branch>  # create and checkout new branch
 
 **Only show the current branch**
 
+Print the current branch (the one with the asterik when doing `git branch`):
+
 ```
-git branch | grep '*'
+git branch | grep '*' | cut -c 3-
 ```
+
+Use `cut` to cut off the beginning of the resulting string (starting at the 3rd position).
 
 **Checking out a remote branch** (Source: [atlassian.com](https://www.atlassian.com/git/tutorials/using-branches/git-checkout))
 
