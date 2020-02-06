@@ -1,8 +1,23 @@
-###################################
-### AWESOME BASHRC by winklerrr ###
-###                             ###
-###    github.com/winklerrr     ###
-###################################
+#############################################
+###      AWESOME BASHRC by winklerrr      ###
+###                                       ###
+###          github.com/winklerrr         ###
+#############################################
+
+
+################### SETTINGS ################
 
 # use vim as default editor (for git, etc.)
 export EDITOR=vim
+
+
+################### ALIASES #################
+# for a full list of active aliases, 
+# run the `alias` command
+
+# unalias everything before aliasing again
+unalias -m "*"
+
+# ls
+alias ls="ls --color=auto"
+
