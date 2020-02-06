@@ -1,2 +1,8 @@
-# To use vim as default editor (for git, etc.)
+###################################
+### AWESOME BASHRC by winklerrr ###
+###                             ###
+###    github.com/winklerrr     ###
+###################################
+
+# use vim as default editor (for git, etc.)
 export EDITOR=vim
