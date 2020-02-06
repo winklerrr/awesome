@@ -14,9 +14,16 @@ PARENT_DIR=`dirname ${THIS_DIR}`
 
 ################### SETTINGS ################
 
-# use vim as default editor (for git, etc.)
+# USE VIM AS DEFAULT EDITOR (FOR GIT, ETC.)
 export VISUAL=vim  # because some programms use VISUAL
 export EDITOR="$VISUAL"
+
+# REDUCE TIME TO SWITCH BETWEEN VIMS INSERT AND NORMAL MODE
+export KEYTIMEOUT=1 
+
+# USE VIM IN BASH
+set -o vi
+set show-mode-in-prompt on
 
 
 ################## FUNCTIONS ################
@@ -33,7 +40,7 @@ function mkdir {
   fi
 }
 
-# git commit
+# GIT COMMIT
 function gc {
   if [ -z "$1" ]; then
     git commit 
@@ -42,45 +49,49 @@ function gc {
   fi
 }
 
-# git add all local changes and commit
+# GIT ADD COMMIT
+# just add changes from the current directory and commit them
 function gac {
   git add . && gc "$*"
 }
 
-# git add all changes and commit
+# GIT ADD ALL COMMIT
+# add all changes and commit them
 function gaac {
   git add -A && gc "$*"
 }
 
-# git commit with --amend
+# GIT COMMIT AMEND
+# commit with --amend and --no-edit
 function gca {
   git commit --amend --no-edit
 }
 
-# git commit all with --amend
+# GIT COMMIT AMEND ALL
+# commit all changes with --amend and --no-edit
 function gcaa {
   git commit -a --amend --no-edit
 }
 
 
 ################### ALIASES #################
-# for a full list of active aliases, 
-# run the `alias` command
+# FOR A FULL LIST OF ACTIVE ALIASES, 
+# RUN THE `ALIAS` COMMAND
 
-# unalias everything before aliasing again
+# UNALIAS EVERYTHING BEFORE ALIASING AGAIN
 unalias -a
 
-# general
+# GENERAL
 alias c=clear
 alias md=mkdir
 
-# list directory
+# LIST DIRECTORY
 alias ls="ls --color=auto -lAp"  # -l for table, -A to show all except `.` and `..`, -p to add `/` after directories
 
 alias l=ls
 alias ll="ls -sS"  # show and order according to file size
 
-# change dir
+# CHANGE DIR
 alias ~="cd ~"
 alias -- -="cd -"  # use -- to indicate end of options
 
@@ -90,7 +101,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-# git
+# GIT
 alias g=git
 
 alias gs="git status"
@@ -112,7 +123,7 @@ alias gname="printf 'Name: ' && git config user.name"
 alias gmail="printf 'Mail: ' && git config user.email"
 alias ginfo="gname && gmail"
 
-# configs
+# CONFIGS
 alias configs="cd '${THIS_DIR}'"
 alias awesome="cd '${PARENT_DIR}'"
 alias reload="source '${THIS}' && echo 'AWESOME BASHRC reloaded'"
@@ -120,3 +131,4 @@ alias reload="source '${THIS}' && echo 'AWESOME BASHRC reloaded'"
 alias bashrc="vim '${THIS}' && reload"
 alias vimrc="vim '${THIS_DIR}/vimrc'"
 alias tmux="vim '${THIS_DIR}/tmux.conf'"
+alias inputrc="vim '${THIS_DIR}/inputrc'"
