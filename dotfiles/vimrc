@@ -1,3 +1,9 @@
+"#############################################
+"###       AWESOME GITRC by winklerrr      ###
+"###                                       ###
+"###          github.com/winklerrr         ###
+"#############################################
+
 " default colorscheme
 colo koehler
 
@@ -19,3 +25,9 @@ set list
 
 " show even carriage returns ^M
 ""e ++ff=unix
+
+" show a block cursor in normal mode
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
