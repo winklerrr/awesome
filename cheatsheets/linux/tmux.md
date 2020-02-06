@@ -1,4 +1,4 @@
-# Awesome tmux Notes
+# Awesome tmux Cheatsheet
 
 **Reminder:** `PRE` stands for the tmux prefix (normally `STRG`+`b`, maybe changed to `STRG`+`a`)
 
