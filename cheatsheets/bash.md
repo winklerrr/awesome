@@ -24,3 +24,4 @@ function_name () {
 - `$#`: The number of arguments passed to the function.
 - `$@`: All passed arguments. When double quoted `"$@"` expands to separate strings: `"$1" "$2" ... "$n"`.
 - `$*`: All passed arguments. When double quoted `"$*"` expands to a single string: `"$1 $2 ... $n"`.
+- `$?`: The exit status of the most recently run process.
