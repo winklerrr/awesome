@@ -29,7 +29,7 @@ set show-mode-in-prompt on
 ################## FUNCTIONS ################
 
 function cd {
-  builtin cd $1 && ls
+  builtin cd $1 && ls --color=auto -lAp
 }
 
 function mkdir {
@@ -130,5 +130,5 @@ alias reload="source '${THIS}' && echo 'AWESOME BASHRC reloaded'"
 
 alias bashrc="vim '${THIS}' && reload"
 alias vimrc="vim '${THIS_DIR}/vimrc'"
-alias tmux="vim '${THIS_DIR}/tmux.conf'"
+alias tmuxrc="vim '${THIS_DIR}/tmux.conf'"
 alias inputrc="vim '${THIS_DIR}/inputrc'"
