@@ -38,9 +38,14 @@ function gc {
   fi
 }
 
-# git add all and commit
+# git add all local changes and commit
 function gac {
   git add . && gc "$*"
+}
+
+# git add all changes and commit
+function gaac {
+  git add -A && gc "$*"
 }
 
 # git commit with --amend
