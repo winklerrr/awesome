@@ -1,4 +1,4 @@
-# Awesome Tig
+# Awesome Tig Cheatsheet
 Source: [tig](https://jonas.github.io/tig/)
 
 Fun fact: `tig` is just `git` spelled backwards.
