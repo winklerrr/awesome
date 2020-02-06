@@ -1,4 +1,4 @@
-# Awesome Git
+# Awesome Git Cheatsheet
 
 ## Basics
 
