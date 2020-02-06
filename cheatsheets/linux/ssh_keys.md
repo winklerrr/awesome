@@ -1,4 +1,6 @@
-# Awesome SSH & Key Notes
+##############################################
+# Awesome SSH & Keys Cheatsheet by winklerrr #
+##############################################
 
 Add a key to ssh:
 
