@@ -5,15 +5,18 @@
 #############################################
 
 
-# path to this file
+################ PATH VARIABLES #############
+
 THIS="$BASH_SOURCE"
 THIS_DIR=`dirname ${THIS}`
+PARENT_DIR=`dirname ${THIS_DIR}`
 
 
 ################### SETTINGS ################
 
 # use vim as default editor (for git, etc.)
-export EDITOR=vim
+export VISUAL=vim  # because some programms use VISUAL
+export EDITOR="$VISUAL"
 
 
 ################## FUNCTIONS ################
@@ -51,7 +54,12 @@ function gaac {
 
 # git commit with --amend
 function gca {
-  git commit --amend
+  git commit --amend --no-edit
+}
+
+# git commit all with --amend
+function gcaa {
+  git commit -a --amend --no-edit
 }
 
 
@@ -106,6 +114,7 @@ alias ginfo="gname && gmail"
 
 # configs
 alias configs="cd '${THIS_DIR}'"
+alias awesome="cd '${PARENT_DIR}'"
 alias reload="source '${THIS}' && echo 'AWESOME BASHRC reloaded'"
 
 alias bashrc="vim '${THIS}' && reload"
