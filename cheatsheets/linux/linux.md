@@ -10,7 +10,7 @@ Show the full path of a command:
 which COMMAND
 ```
 
-Show type information about a command (use `-a` to show all locations of the command):
+Show type information about a command (`-a` to show all locations of the command):
 
 ```
 type -a COMMAND
@@ -27,11 +27,11 @@ Show the help menu of a command:
 ```
 help COMMAND
 
-# to show the help page in the typicall `man` style
+# show the help page in the typicall `man` style
 help -m COMMAND | less
 ```
 
-Here on [askubuntu.com](https://askubuntu.com/a/439411/478654) is a nice solution for a function to show either the man page or if there is no man page the help page instead.
+Here on [askubuntu.com](https://askubuntu.com/a/439411/478654) is a nice solution for a function to show either the man page or if there is no man page to show the help page instead.
 
 ## Processes Management
 
