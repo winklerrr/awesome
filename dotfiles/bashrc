@@ -7,6 +7,7 @@
 
 # path to this file
 THIS="$BASH_SOURCE"
+THIS_DIR=`dirname ${THIS}`
 
 
 ################### SETTINGS ################
@@ -103,6 +104,10 @@ alias gname="printf 'Name: ' && git config user.name"
 alias gmail="printf 'Mail: ' && git config user.email"
 alias ginfo="gname && gmail"
 
-# bashrc
+# configs
+alias configs="cd '${THIS_DIR}'"
 alias reload="source '${THIS}' && echo 'AWESOME BASHRC reloaded'"
+
 alias bashrc="vim '${THIS}' && reload"
+alias vimrc="vim '${THIS_DIR}/vimrc'"
+alias tmux="vim '${THIS_DIR}/tmux.conf'"
