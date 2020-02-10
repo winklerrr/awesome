@@ -1,4 +1,4 @@
-# Awesome Talks & Reads Cheatsheet
+# Awesome Talks & Reads Notes
 
 ## Reads
 
