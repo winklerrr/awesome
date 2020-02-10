@@ -1,5 +1,7 @@
 # Awesome Framework Notes
 
+**Important:** Now the difference between *framework*, *library*, *platform*, *API*, *SDK*, *toolkit* and *IDE*! (Source: [medium.com](https://medium.com/@shashvatshukla/framework-vs-library-vs-platform-vs-api-vs-sdk-vs-toolkits-vs-ide-50a9473999db))
+
 ## CSS
 
 Frameworks itself:
