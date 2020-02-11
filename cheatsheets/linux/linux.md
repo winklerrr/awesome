@@ -67,3 +67,13 @@ Use `/dev/null` (the "null device") to discard data and/or output, for example:
 ```
 grep -Fx "search string" input_file > /dev/null
 ```
+
+(`-F` to interpret the given search string as a so called "fixed string", meaning no regex interpration. `-x` to match whole lines. Instead of `> /dev/null` it would also be possible to use `-x` to tell grep to search quietly.)
+
+**Checking the last exit status** (Source: [tldp.org](https://www.tldp.org/LDP/abs/html/exit-status.html))
+
+To check the exit status of the last command use bashes `$?` like so:
+
+```
+echo $?
+```
