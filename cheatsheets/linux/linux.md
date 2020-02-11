@@ -59,3 +59,11 @@ Use `pgrep <name>` or `pkill <name>`:
 kill $(pgrep firefox)
 pkill firefox
 ```
+
+## Handling Output
+
+Use `/dev/null` (the "null device") to discard data and/or output, for example:
+
+```
+grep -Fx "search string" input_file > /dev/null
+```
