@@ -5,7 +5,7 @@
 "#############################################
 
 " default colorscheme
-colo koehler
+colo peachpuff
 
 " syntax highlighting
 syntax on
