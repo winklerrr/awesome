@@ -18,9 +18,6 @@ PARENT_DIR=`dirname ${THIS_DIR}`
 export VISUAL=vim  # because some programms use VISUAL
 export EDITOR="$VISUAL"
 
-# REDUCE TIME TO SWITCH BETWEEN VIMS INSERT AND NORMAL MODE
-export KEYTIMEOUT=1 
-
 # USE VIM IN BASH
 set -o vi
 set show-mode-in-prompt on
