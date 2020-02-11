@@ -14,67 +14,12 @@ PARENT_DIR=`dirname ${THIS_DIR}`
 
 ################### SETTINGS ################
 
-# USE VIM AS DEFAULT EDITOR (FOR GIT, ETC.)
-export VISUAL=vim  # because some programms use VISUAL
-export EDITOR="$VISUAL"
+# USE VIM AS DEFAULT EDITOR/VISUAL (FOR GIT, ETC.)
+export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 
 # USE VIM IN BASH
 set -o vi
-set show-mode-in-prompt on
-
-
-################## FUNCTIONS ################
-
-function cd {
-  builtin cd $1 && ls
-}
-
-function mkdir {
-  if [ $# -eq 1 ]; then
-    /bin/mkdir $1 && cd $1
-  else
-    /bin/mkdir "$@"
-  fi
-}
-
-# GIT COMMIT
-function gc {
-  if [ -z "$1" ]; then
-    git commit 
-  else 
-    git commit -m "$*"
-  fi
-}
-
-# GIT COMMIT ALL
-# add all changes from the current directory and commit them
-function gca {
-  git add . && gc "$*"
-}
-
-# GIT COMMIT ALL ALL
-# add all changes regardless of their directory and commit them
-function gcaa {
-  git add -A && gc "$*"
-}
-
-# GIT COMMIT AMEND
-# commit with --amend and --no-edit
-function gcamend {
-  git commit --amend --no-edit
-}
-
-# GIT COMMIT AMEND ALL
-# add all changes from the current repository and commit them with --amend and --no-edit
-function gcamenda {
-  git add . && gcamend
-}
-
-# GIT COMMIT AMEND ALL ALL
-# add all changes regardless of their directory and commit them with --amend and --no-edit
-function gcamendaa {
-  git add -A && gcamend
-}
 
 
 ################### ALIASES #################
@@ -141,3 +86,57 @@ alias bashrc="vim '${THIS}' && reload"
 alias vimrc="vim '${THIS_DIR}/vimrc'"
 alias tmuxrc="vim '${THIS_DIR}/tmux.conf'"
 alias inputrc="vim '${THIS_DIR}/inputrc'"
+
+
+################## FUNCTIONS ################
+
+function cd {
+  builtin cd $1 && ls
+}
+
+function mkdir {
+  if [ $# -eq 1 ]; then
+    /bin/mkdir $1 && cd $1
+  else
+    /bin/mkdir "$@"
+  fi
+}
+
+# GIT COMMIT
+function gc {
+  if [ -z "$1" ]; then
+    git commit 
+  else 
+    git commit -m "$*"
+  fi
+}
+
+# GIT COMMIT ALL
+# add all changes from the current directory and commit them
+function gca {
+  git add . && gc "$*"
+}
+
+# GIT COMMIT ALL ALL
+# add all changes regardless of their directory and commit them
+function gcaa {
+  git add -A && gc "$*"
+}
+
+# GIT COMMIT AMEND
+# commit with --amend and --no-edit
+function gcamend {
+  git commit --amend --no-edit
+}
+
+# GIT COMMIT AMEND ALL
+# add all changes from the current repository and commit them with --amend and --no-edit
+function gcamenda {
+  git add . && gcamend
+}
+
+# GIT COMMIT AMEND ALL ALL
+# add all changes regardless of their directory and commit them with --amend and --no-edit
+function gcamendaa {
+  git add -A && gcamend
+}
