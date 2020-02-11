@@ -133,7 +133,11 @@ alias ginfo="gurl && gbranch && gname && gmail"
 
 # CONFIGS
 alias configs="cd '${THIS_DIR}'"
+alias dotfiles="cd '${THIS_DIR}'"
 alias awesome="cd '${PARENT_DIR}'"
+alias cheatsheets="cd '${PARENT_DIR}/cheatsheets'"
+alias notes="cd '${PARENT_DIR}/notes'"
+
 alias reload="source '${THIS}' && echo 'AWESOME BASHRC reloaded'"
 
 alias bashrc="vim '${THIS}' && reload"

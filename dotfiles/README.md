@@ -29,3 +29,16 @@ echo '$include ~/awesome/dotfiles/inputrc' >> ~/.inputrc
 The awesome dotfiles come with some predefined aliases and new functions!
 (To see a list of all currently set aliases use: `alias`)
 
+### GIT
+
+- **GIT COMMIT ALL:** add all changes from the current directory and commit them
+
+```
+gca YOUR COMMIT MESSAGE HERE
+```
+
+- **GIT COMMIT AMEND:** commit with --amend and --no-edit
+
+```
+gcamend
+```
