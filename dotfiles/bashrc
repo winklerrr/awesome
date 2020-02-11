@@ -49,28 +49,34 @@ function gc {
   fi
 }
 
-# GIT ADD COMMIT
-# just add changes from the current directory and commit them
-function gac {
+# GIT COMMIT ALL
+# add all changes from the current directory and commit them
+function gca {
   git add . && gc "$*"
 }
 
-# GIT ADD ALL COMMIT
-# add all changes and commit them
-function gaac {
+# GIT COMMIT ALL ALL
+# add all changes regardless of their directory and commit them
+function gcaa {
   git add -A && gc "$*"
 }
 
 # GIT COMMIT AMEND
 # commit with --amend and --no-edit
-function gca {
+function gcamend {
   git commit --amend --no-edit
 }
 
 # GIT COMMIT AMEND ALL
-# commit all changes with --amend and --no-edit
-function gcaa {
-  git commit -a --amend --no-edit
+# add all changes from the current repository and commit them with --amend and --no-edit
+function gcamenda {
+  git add . && gcamend
+}
+
+# GIT COMMIT AMEND ALL ALL
+# add all changes regardless of their directory and commit them with --amend and --no-edit
+function gcamendaa {
+  git add -A && gcamend
 }
 
 
