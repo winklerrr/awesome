@@ -23,3 +23,9 @@ echo "source ~/awesome/dotfiles/tmux.conf" >> ~/.tmux.conf && tmux source-file ~
 # for .inputrc
 echo '$include ~/awesome/dotfiles/inputrc' >> ~/.inputrc
 ```
+
+## Aliases & Functions
+
+The awesome dotfiles come with some predefined aliases and new functions!
+(To see a list of all currently set aliases use: `alias`)
+
