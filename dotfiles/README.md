@@ -21,5 +21,5 @@ echo "source ~/awesome/dotfiles/vimrc" >> ~/.vimrc
 echo "source ~/awesome/dotfiles/tmux.conf" >> ~/.tmux.conf && tmux source-file ~/.tmux.conf
 
 # for .inputrc
-echo "$include ~/awesome/dotfiles/inputrc" >> ~/.inputrc
+echo '$include ~/awesome/dotfiles/inputrc' >> ~/.inputrc
 ```
