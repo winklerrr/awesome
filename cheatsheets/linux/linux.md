@@ -62,6 +62,8 @@ pkill firefox
 
 ## Handling Output
 
+**Using the null device** (Source: [wikepedia.org](https://en.wikipedia.org/wiki/Null_device))
+
 Use `/dev/null` (the "null device") to discard data and/or output, for example:
 
 ```
@@ -77,4 +79,3 @@ To check the exit status of the last command use bashes `$?` like so:
 ```
 echo $?
 ```
-
