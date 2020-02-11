@@ -20,8 +20,11 @@ set softtabstop=2
 " activate autoindent
 set autoindent
 
+" show line numbers
+set number
+
 " show all whitespace characters
-set list
+""set list
 
 " show even carriage returns ^M
 ""e ++ff=unix
