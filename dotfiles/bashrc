@@ -29,7 +29,7 @@ set show-mode-in-prompt on
 ################## FUNCTIONS ################
 
 function cd {
-  builtin cd $1 && ls --color=auto -lAp
+  builtin cd $1 && ls
 }
 
 function mkdir {
@@ -86,10 +86,10 @@ alias c=clear
 alias md=mkdir
 
 # LIST DIRECTORY
-alias ls="ls --color=auto -lAp"  # -l for table, -A to show all except `.` and `..`, -p to add `/` after directories
+alias ls="ls --color=auto -Ap"  # -A to show all except `.` and `..`, -p to add `/` after directories
 
-alias l=ls
-alias ll="ls -sS"  # show and order according to file size
+alias l="ls -l"  # -l for table
+alias ll="l -sS"  # show and order according to file size
 
 # CHANGE DIR
 alias ~="cd ~"
@@ -102,7 +102,7 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
 # GIT
-alias g=git
+alias g="git"
 
 alias gs="git status"
 alias gd="git diff"
@@ -116,7 +116,7 @@ alias gf="git fetch"
 alias gp="git pull"
 alias gpsh="git push"
 
-alias gr="git rebase"
+alias gre="git rebase"
 alias gri="git rebase -i"
 
 alias gurl="printf 'URL: ' && git config remote.origin.url"
