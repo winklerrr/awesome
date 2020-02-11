@@ -16,7 +16,25 @@ This allows the script to be executed in the following manner:
 
 (The script needs to be marked as executable. Otherwise just call the interpreter directly: `bash script.sh`)
 
+
+## Variables
+
+In bash a variable can be declared like so:
+
+```
+my_var=value
+```
+
+The value is saved as a string.
+To use the value of a given variable use `$` like so:
+
+```
+echo $my_var
+```
+
 ## Functions
+
+### Function Definition
 
 A bash function can be defined with the keyword `function` before the function name or with parentheses after the function name:
 
@@ -33,7 +51,7 @@ function_name () {
 ```
 
 
-## Function Arguments
+### Function Arguments
 
 - `$1`, `$2`, ..., `$n`: The passed arguments corresponding to the position of the argument after the functions name.
 - `$0`: The function's name.
@@ -46,7 +64,7 @@ function_name () {
 ## Condionals
 (Source: [tldp.org](https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-6.html))
 
-The basic conditional:
+The basic conditional structure looks like:
 
 ```
 #!/bin/bash
@@ -60,3 +78,6 @@ else
 fi
 ```
 
+The `if` keyword checks the exit status of a given command to determine the execution path.
+The square brackets are needed because `"$var1" = "foo"` is not a command - it's just an expression.
+By surrounding the expressing with square brackets the `test` command gets executed which then provides an exit status for the `if` keyword to check for.
