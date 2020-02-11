@@ -81,3 +81,6 @@ fi
 The `if` keyword checks the exit status of a given command to determine the execution path.
 The square brackets are needed because `"$var1" = "foo"` is not a command - it's just an expression.
 By surrounding the expressing with square brackets the `test` command gets executed which then provides an exit status for the `if` keyword to check for.
+
+Use double square brackets `[[ EXPRESSION ]]` for the updated `test` command.
+For portability on POSIX systems stay with single square brackets.
