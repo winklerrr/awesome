@@ -27,7 +27,8 @@ set list
 ""e ++ff=unix
 
 " show a block cursor in normal mode
-let &t_ti.="\e[1 q"
-let &t_SI.="\e[5 q"
-let &t_EI.="\e[1 q"
-let &t_te.="\e[0 q"
+let &t_SI.="\e[5 q"  " insert mode
+let &t_EI.="\e[1 q"  " normal mode
+
+let &t_ti.="\e[1 q"  " enter termcap mode
+let &t_te.="\e[0 q"  " exit termcap mode
