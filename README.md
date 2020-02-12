@@ -13,13 +13,13 @@ So for god's sake use `man`!
 1. Clone the repo to the `awesome` folder in your home path:
 
 ```
-git clone git@github.com:winklerrr/awesome.git ~/awesome && cd ~/awesome
+git clone git@github.com:winklerrr/awesome.git ~/awesome
 ```
 
 2. Then install the dotfiles by executing `install.sh`:
 
 ```
-bash dotfiles/install.sh
+bash ~/awesome/install.sh
 ```
 
 3. Or do it manually by adding `source` commands the corresponding config files:
