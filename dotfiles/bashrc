@@ -17,6 +17,16 @@ THIS_DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
 PARENT_DIR="$(dirname "${THIS_DIR}")"
 
 
+############################### INTERNAL FUNCTIONS #############################
+
+
+# RETURN THE CURRENT GIT BRANCH OR AN EMPTY STRING
+# https://medium.com/@thucnc/how-to-show-current-git-branch-with-colors-in-bash-prompt-380d05a24745
+function get_current_git_branch {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/<\1>/'
+}
+
+
 #################################### SETTINGS ##################################
 
 # USE VIM AS DEFAULT EDITOR/VISUAL (FOR GIT, ETC.)
@@ -52,7 +62,7 @@ set -o vi
 #     35: purple
 #     36: cyan
 #     37: white
-PS1=' \[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[00m\]:\[\e[1;34m\]\w\[\e[00m\] \$ '
+PS1=" \[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[00m\]:\[\e[1;34m\]\w \[\e[1;35m\]\$(get_current_git_branch) \[\e[00m\]\$ "
 
 
 ##################################### ALIASES ##################################
@@ -91,6 +101,7 @@ alias g="git"
 alias gs="git status"
 alias gd="git diff"
 alias gl="git log"
+alias gb="git branch"
 
 alias ga="git add"
 alias ga.="git add ."
