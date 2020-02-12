@@ -16,12 +16,18 @@ function install {
 echo "### INSTALLING DOTFILES by winklerrr ###"
 
 # get the current absolute directory
-DIR=$(cd $(dirname ${BASH_SOURCE}) >/dev/null 2>&1 && pwd)
-echo "> Found the files in '$DIR'"
+DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
+echo "> Found the dotfiles in '$DIR'"
 
 # install all scripts
 install "$HOME/.bashrc" "source $DIR/bashrc"
 install "$HOME/.vimrc" "source $DIR/vimrc"
 install "$HOME/.tmux.conf" "source $DIR/tmux.conf"
 install "$HOME/.inputrc" "\$include $DIR/inputrc"
+echo "> Installed all dotfiles"
+
+# reload .bashrc
+source "$HOME/.bashrc"
+echo "> Reloaded '$HOME/.bashrc'"
+
 echo "> Done"

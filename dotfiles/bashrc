@@ -13,8 +13,8 @@
 ################################# PATH VARIABLES ###############################
 
 THIS="$BASH_SOURCE"
-THIS_DIR=`dirname ${THIS}`
-PARENT_DIR=`dirname ${THIS_DIR}`
+THIS_DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
+PARENT_DIR="$(dirname "${THIS_DIR}")"
 
 
 #################################### SETTINGS ##################################
