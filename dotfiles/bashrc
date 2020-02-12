@@ -26,6 +26,34 @@ export EDITOR=/usr/bin/vim
 # USE VIM IN BASH
 set -o vi
 
+# SET THE PROMPT
+# https://www.howtogeek.com/307701/how-to-customize-and-colorize-your-bash-prompt/
+# 
+#   variables:
+#     \t: timestamp
+#     \u: user name
+#     \w: working directory
+#     \$: show $ or # according to privileges
+#
+#   styling looks like: \[\e[ATTRIBUTE;COLORm\]
+#
+#   attributes:
+#     00; normal text
+#     01; bold text
+#     02; dim text
+#
+#   colors:
+#     00: no color
+#     30: black
+#     31: red
+#     32: green
+#     33: yellow
+#     34: blue
+#     35: purple
+#     36: cyan
+#     37: white
+PS1=' \[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[00m\]:\[\e[1;34m\]\w\[\e[00m\] \$ '
+
 
 ##################################### ALIASES ##################################
 # FOR A FULL LIST OF ACTIVE ALIASES, 
