@@ -1,18 +1,23 @@
-#############################################
-###      AWESOME BASHRC by winklerrr      ###
-###                                       ###
-###          github.com/winklerrr         ###
-#############################################
+################################################################################
+##                                                                            ##
+##                             ~ AWESOME   BASHRC ~                           ##
+##                                 by winklerrr                               ##
+##                                                                            ##
+##                             github.com/winklerrr                           ##
+##                                                                            ##
+##                               ENJOY YOUR DAY !                             ##
+##                                                                            ##
+################################################################################
 
 
-################ PATH VARIABLES #############
+################################# PATH VARIABLES ###############################
 
 THIS="$BASH_SOURCE"
 THIS_DIR=`dirname ${THIS}`
 PARENT_DIR=`dirname ${THIS_DIR}`
 
 
-################### SETTINGS ################
+#################################### SETTINGS ##################################
 
 # USE VIM AS DEFAULT EDITOR/VISUAL (FOR GIT, ETC.)
 export VISUAL=/usr/bin/vim
@@ -22,7 +27,7 @@ export EDITOR=/usr/bin/vim
 set -o vi
 
 
-################### ALIASES #################
+##################################### ALIASES ##################################
 # FOR A FULL LIST OF ACTIVE ALIASES, 
 # RUN THE `ALIAS` COMMAND
 
@@ -34,10 +39,13 @@ alias c=clear
 alias md=mkdir
 
 # LIST DIRECTORY
-alias ls="ls --color=auto -Ap"  # -A to show all except `.` and `..`, -p to add `/` after directories
-
-alias l="ls -l"  # -l for table
-alias ll="l -sS"  # show and order according to file size
+#   -A to show all except `.` and `..`
+#   -p to add `/` after directories
+#   -l for table
+#   -sS show file size and order accordingly
+alias ls="ls --color=auto -Ap"  
+alias l="ls -l"  
+alias ll="l -sS"  
 
 # CHANGE DIR
 alias ~="cd ~"
@@ -88,7 +96,7 @@ alias tmuxrc="vim '${THIS_DIR}/tmux.conf'"
 alias inputrc="vim '${THIS_DIR}/inputrc'"
 
 
-################## FUNCTIONS ################
+################################## FUNCTIONS ###################################
 
 function cd {
   builtin cd $1 && ls
@@ -112,31 +120,33 @@ function gc {
 }
 
 # GIT COMMIT ALL
-# add all changes from the current directory and commit them
+#   add all changes from the current directory and commit them
 function gca {
   git add . && gc "$*"
 }
 
 # GIT COMMIT ALL ALL
-# add all changes regardless of their directory and commit them
+#   add all changes regardless of their directory and commit them
 function gcaa {
   git add -A && gc "$*"
 }
 
 # GIT COMMIT AMEND
-# commit with --amend and --no-edit
+#   commit with --amend and --no-edit
 function gcamend {
   git commit --amend --no-edit
 }
 
 # GIT COMMIT AMEND ALL
-# add all changes from the current repository and commit them with --amend and --no-edit
+#   add all changes from the current repository 
+#   and commit them with --amend and --no-edit
 function gcamenda {
   git add . && gcamend
 }
 
 # GIT COMMIT AMEND ALL ALL
-# add all changes regardless of their directory and commit them with --amend and --no-edit
+#   add all changes regardless of their directory
+#   and commit them with --amend and --no-edit
 function gcamendaa {
   git add -A && gcamend
 }

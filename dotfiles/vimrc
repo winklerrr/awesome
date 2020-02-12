@@ -1,35 +1,40 @@
-"#############################################
-"###       AWESOME VIMRC by winklerrr      ###
-"###                                       ###
-"###          github.com/winklerrr         ###
-"#############################################
+"################################################################################
+"##                                                                            ##
+"##                             ~ AWESOME    VIMRC ~                           ##
+"##                                 by winklerrr                               ##
+"##                                                                            ##
+"##                             github.com/winklerrr                           ##
+"##                                                                            ##
+"##                               ENJOY YOUR DAY !                             ##
+"##                                                                            ##
+"################################################################################
 
-" default colorscheme
+" DEFAULT COLORSCHEME
 colo peachpuff
 
-" syntax highlighting
+" SYNTAX HIGHLIGHTING
 syntax on
 
-" convert new tabs to spaces
+" CONVERT NEW TABS TO SPACES
 set expandtab
 
-" set width of tabs
+" SET WIDTH OF TABS
 set shiftwidth=2
 set softtabstop=2
 
-" activate autoindent
+" ACTIVATE AUTOINDENT
 set autoindent
 
-" show line numbers
+" SHOW LINE NUMBERS
 set number
 
-" show all whitespace characters
+" SHOW ALL WHITESPACE CHARACTERS
 ""set list
 
-" show even carriage returns ^M
+" SHOW EVEN CARRIAGE RETURNS ^m
 ""e ++ff=unix
 
-" show a block cursor in normal mode
+" SHOW A BLOCK CURSOR IN NORMAL MODE
 let &t_SI.="\e[5 q"  " insert mode
 let &t_EI.="\e[1 q"  " normal mode
 

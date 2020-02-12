@@ -1,11 +1,16 @@
-#############################################
-###       AWESOME INPUTRC by winklerrr    ###
-###                                       ###
-###          github.com/winklerrr         ###
-#############################################
+################################################################################
+##                                                                            ##
+##                             ~ AWESOME  INPUTRC ~                           ##
+##                                 by winklerrr                               ##
+##                                                                            ##
+##                             github.com/winklerrr                           ##
+##                                                                            ##
+##                               ENJOY YOUR DAY !                             ##
+##                                                                            ##
+################################################################################
 
 
-#################### VIM ####################
+##################################### VIM ######################################
 # FOR MORE INFORMATION CHECK:
 # https://wiki.archlinux.org/index.php/Readline
 
@@ -28,7 +33,14 @@ set vi-ins-mode-string (ins)\1\e[5 q\2
 set vi-cmd-mode-string (cmd)\1\e[1 q\2
 
 
-############### MISCELLANEOUS ###############
+################################### SETTINGS ##################################
+
+# LET THE AUTO COMPLETION IGNORE CASES
+set completion-ignore-case on
+
+# JUST SHOW THE COMPLETIONS INSTEAD OF RINGING THAT ANNOYING BELL
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
 
 # TURN OF THE ANNOYING BEEP
 set bell-style none
