@@ -9,11 +9,17 @@
 "##                                                                            ##
 "################################################################################
 
+
+"#################################### STYLING ###################################
+
 " DEFAULT COLORSCHEME
 colo peachpuff
 
 " SYNTAX HIGHLIGHTING
 syntax on
+
+
+"################################### SETTINGS ##################################
 
 " CONVERT NEW TABS TO SPACES
 set expandtab
@@ -28,11 +34,10 @@ set autoindent
 " SHOW LINE NUMBERS
 set number
 
-" SHOW ALL WHITESPACE CHARACTERS
-""set list
+" TURN OFF THAT ANNOYING BEEP
+set visualbell
 
-" SHOW EVEN CARRIAGE RETURNS ^m
-""e ++ff=unix
+"#################################### CURSOR ###################################
 
 " SHOW A BLOCK CURSOR IN NORMAL MODE
 let &t_SI.="\e[5 q"  " insert mode
@@ -40,3 +45,12 @@ let &t_EI.="\e[1 q"  " normal mode
 
 let &t_ti.="\e[1 q"  " enter termcap mode
 let &t_te.="\e[0 q"  " exit termcap mode
+
+
+"################################# SPECIAL CHARS ###############################
+
+" SHOW ALL WHITESPACE CHARACTERS
+""set list
+
+" SHOW EVEN CARRIAGE RETURNS ^m
+""e ++ff=unix
