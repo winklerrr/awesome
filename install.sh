@@ -16,14 +16,15 @@ function install {
 echo "### INSTALLING DOTFILES by winklerrr ###"
 
 # get the current absolute directory
-DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
-echo "> Found the dotfiles in '$DIR'"
+THIS_DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
+DOTFILES_DIR="$THIS_DIR/dotfiles"
+echo "> Found the dotfiles in '$DOTFILES_DIR'"
 
 # install all scripts
-install "$HOME/.bashrc" "source $DIR/bashrc"
-install "$HOME/.vimrc" "source $DIR/vimrc"
-install "$HOME/.tmux.conf" "source $DIR/tmux.conf"
-install "$HOME/.inputrc" "\$include $DIR/inputrc"
+install "$HOME/.bashrc" "source $DOTFILES_DIR/bashrc"
+install "$HOME/.vimrc" "source $DOTFILES_DIR/vimrc"
+install "$HOME/.tmux.conf" "source $DOTFILES_DIR/tmux.conf"
+install "$HOME/.inputrc" "\$include $DOTFILES_DIR/inputrc"
 echo "> Installed all dotfiles"
 
 # reload .bashrc
