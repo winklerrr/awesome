@@ -96,6 +96,9 @@ alias ga="git add"
 alias ga.="git add ."
 alias gaa="git add -A"
 
+alias gac="gca"
+alias gaac="gcaa"
+
 alias gf="git fetch"
 alias gp="git pull"
 alias gpsh="git push"
