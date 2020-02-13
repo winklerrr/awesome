@@ -4,10 +4,10 @@ function install {
   FILE="$HOME/$1"
   LINE="$2"
 
-  if [[ "$all" == "false" ]]; then
-    add="$(ask "> Add '$LINE' to '$FILE'?")"
+  if [[ "$ALL" == "false" ]]; then
+    ADD="$(ask "> Add '$LINE' to '$FILE'?")"
   else
-    add="true"
+    ADD="true"
   fi
 
   if [[ "$add" == "true" ]]; then
@@ -41,7 +41,7 @@ DOTFILES_DIR="$THIS_DIR/dotfiles"
 echo "> Found the dotfiles in '$DOTFILES_DIR'"
 
 # install all scripts
-all="$(ask "> Do you want to install all the dotfiles?")"
+ALL="$(ask "> Do you want to install all the dotfiles?")"
 
 install ".profile"    "source $HOME/.bashrc"
 install ".bashrc"     "source $DOTFILES_DIR/bashrc"
