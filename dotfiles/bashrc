@@ -78,10 +78,11 @@ alias md=mkdir
 
 # LIST DIRECTORY
 #   -A to show all except `.` and `..`
+#   -G auto color
 #   -p to add `/` after directories
 #   -l for table
 #   -sS show file size and order accordingly
-alias ls="ls --color=auto -Ap"  
+alias ls="ls -ApG"  
 alias l="ls -l"  
 alias ll="l -sS"  
 
