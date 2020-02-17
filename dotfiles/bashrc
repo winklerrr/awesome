@@ -177,6 +177,15 @@ function gcaa {
 # GIT COMMIT AMEND
 #   commit with --amend and --no-edit
 function gcamend {
+  if [[ "$1" == "." ]]; then
+    git add .
+  elif [[ "$1" == "-A" ]]; then
+    git add -A
+  elif [[ ! -z $1 ]]; then
+    echo "Use '.' or '-A' as extra parameter"
+    return 1
+  fi
+    
   git commit --amend --no-edit
 }
 
@@ -184,12 +193,12 @@ function gcamend {
 #   add all changes from the current repository 
 #   and commit them with --amend and --no-edit
 function gcamenda {
-  git add . && gcamend
+  gcamend .
 }
 
 # GIT COMMIT AMEND ALL ALL
 #   add all changes regardless of their directory
 #   and commit them with --amend and --no-edit
 function gcamendaa {
-  git add -A && gcamend
+  gcamend -A
 }
