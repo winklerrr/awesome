@@ -11,6 +11,21 @@ git status
 git log
 ```
 
+**Create a new repo and connect with online repo**
+
+```
+touch README.md
+
+# init new repo
+git init
+git add README.md
+git commit -m "first commit"
+
+# connect with online repo
+git remote add origin SSH-URL-HERE
+git push -u origin master
+```
+
 ## Commits
 
 ```
