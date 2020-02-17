@@ -73,8 +73,10 @@ PS1=" \[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[00m\]:\[\e[1;34m\]\w \[\e[1;35m\]\$(ge
 unalias -a
 
 # GENERAL
-alias c=clear
-alias md=mkdir
+alias c="clear"
+alias md="mkdir"
+
+alias v="vim"
 
 # LIST DIRECTORY
 #   -A to show all except `.` and `..`
@@ -108,8 +110,8 @@ alias ga="git add"
 alias ga.="git add ."
 alias gaa="git add -A"
 
-alias gac="gca"
-alias gaac="gcaa"
+alias gac="gca"  # alias for 'git add commit' function
+alias gaac="gcaa"  # alias for 'git add all commit' function
 
 alias gf="git fetch"
 alias gp="git pull"
