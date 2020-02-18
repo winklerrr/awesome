@@ -10,7 +10,7 @@ function install {
     ADD="true"
   fi
 
-  if [[ "$add" == "true" ]]; then
+  if [[ "$ADD" == "true" ]]; then
     if [[ ! -f "$FILE" ]] || ! grep -Fxq "$LINE" "$FILE"; then
       echo "$LINE" >> "$FILE" && echo ">> Successfully added '$LINE' to '$FILE'"
     else
