@@ -1,5 +1,16 @@
 # Awesome Python Cheatsheet
 
+## Fine Tuning
+
+**Make Python scripts executable**
+
+By adding the following shebang to the beginning of your Python script,
+the script can be executed with `. script-name.py`:
+
+```
+#!/usr/bin/env python3
+```
+
 ## Virtual Env
 
 Create a virtual environment `venv`:
