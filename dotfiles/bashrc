@@ -109,9 +109,7 @@ alias gb="git branch"
 alias ga="git add"
 alias ga.="git add ."
 alias gaa="git add -A"
-
-alias gac="gca"  # alias for 'git add commit' function
-alias gaac="gcaa"  # alias for 'git add all commit' function
+alias gres="git reset HEAD~1"
 
 alias gf="git fetch"
 alias gp="git pull"
@@ -119,6 +117,9 @@ alias gpsh="git push"
 
 alias gre="git rebase"
 alias gri="git rebase -i"
+
+alias gac="gca"  # alias for 'git add commit' function
+alias gaac="gcaa"  # alias for 'git add all commit' function
 
 alias gurl="printf 'URL: ' && git config remote.origin.url"
 alias gbranch="printf 'Branch: ' && git branch | grep '*' | cut -c 3-"
