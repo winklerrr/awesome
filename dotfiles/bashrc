@@ -10,8 +10,9 @@
 ################################################################################
 
 
-################################# PATH VARIABLES ###############################
+################################### VARIABLES ##################################
 
+# PATH
 THIS="$BASH_SOURCE"
 THIS_DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
 PARENT_DIR="$(dirname "${THIS_DIR}")"
@@ -33,7 +34,6 @@ function get_current_git_branch {
 AUTO_COMPLETION="/etc/profile.d/bash_completion.sh"
 if [[ -f "$AUTO_COMPLETION" ]]; then
   source "$AUTO_COMPLETION"
-  echo "> Done loading bash auto completion"
 else
   echo "> Unable to find 'bash_completion.sh'"
   echo "> Maybe you need to install it: 'sudo apt update && sudo apt install bash-completion'"
