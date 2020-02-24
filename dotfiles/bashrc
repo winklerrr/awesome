@@ -46,6 +46,9 @@ fi
 bind "set show-all-if-ambiguous on"
 bind "TAB:menu-complete"
 
+# USE XTREM AS DEFAULT
+export TERM=xterm
+
 # USE VIM AS DEFAULT EDITOR/VISUAL (FOR GIT, ETC.)
 export VISUAL=/usr/bin/vim
 export EDITOR=/usr/bin/vim
@@ -119,7 +122,8 @@ alias ......="cd ../../../../.."
 alias g="git"
 
 alias gs="git status"
-alias gd="git diff"
+alias gd="git diff HEAD"  # show diff for all (given) files
+alias gds="git diff --staged"  # show diff for staged files
 alias gl="git log"
 alias gb="git branch"
 
