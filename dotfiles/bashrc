@@ -24,7 +24,7 @@ PARENT_DIR="$(dirname "${THIS_DIR}")"
 # RETURN THE CURRENT GIT BRANCH OR AN EMPTY STRING
 # https://medium.com/@thucnc/how-to-show-current-git-branch-with-colors-in-bash-prompt-380d05a24745
 function get_current_git_branch {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/<\1>/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/<\1> /'
 }
 
 
@@ -82,7 +82,7 @@ set -o vi
 #     35: purple
 #     36: cyan
 #     37: white
-PS1=" \[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[00m\]:\[\e[1;34m\]\w \[\e[1;35m\]\$(get_current_git_branch) \[\e[00m\]\$ "
+PS1=" \[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[00m\]:\[\e[1;34m\]\w \[\e[1;35m\]\$(get_current_git_branch)\[\e[00m\]\$ "
 
 
 ##################################### ALIASES ##################################
