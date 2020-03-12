@@ -13,7 +13,6 @@
     // LATEX WORKSHOP
     "latex-workshop.view.pdf.viewer": "browser",
     "latex-workshop.message.update.show": false,
-    "latex-workshop.message.update.show": false,
     "latex-workshop.latex.recipes": [
         {
             "name": "pdflatex, makeglossaries, pdflatex",
