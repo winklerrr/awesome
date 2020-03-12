@@ -19,41 +19,42 @@
           "tools": [
             "pdflatex",
             "makeglossaries",
-            "pdflatex"
+            "pdflatex",
           ]
         }
-        ],
-        "latex-workshop.latex.tools": [
-          {
-              "name": "latexmk",
-              "command": "latexmk",
-              "args": [
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-pdf",
                 "-outdir=%OUTDIR%",
                 "%DOC%"
-              ],
-              "env": {}
-          },
-          {
-              "name": "pdflatex",
-              "command": "pdflatex",
-              "args": [
+            ],
+            "env": {},
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "%DOC%"
-              ],
-              "env": {}
-          },
-          {
+            ],
+            "env": {},
+        },
+        {
             "name": "makeglossaries",
             "command": "makeglossaries",
             "args": [
-              "%DOCFILE%"
-            ]
-          }
-        ]
+                "%DOCFILE%"
+            ],
+            "env": {},
+        }
+    ],
 }
