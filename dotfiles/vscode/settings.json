@@ -1,0 +1,59 @@
+{
+    // VSCODE BASICS
+    "editor.minimap.enabled": false,
+    // terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",  // WINDOWS ONLY
+    "window.zoomLevel": 0,
+
+    // VIM
+    "vim.useCtrlKeys": false,  // allow normal copy paste to work
+    "vim.handleKeys": {
+        "<C-r>": true,  // activate redo
+    },
+
+    // LATEX WORKSHOP
+    "latex-workshop.view.pdf.viewer": "browser",
+    "latex-workshop.message.update.show": false,
+    "latex-workshop.latex.recipes": [
+        {
+          "name": "pdflatex, makeglossaries, pdflatex",
+          "tools": [
+            "pdflatex",
+            "makeglossaries",
+            "pdflatex"
+          ]
+        }
+        ],
+        "latex-workshop.latex.tools": [
+          {
+              "name": "latexmk",
+              "command": "latexmk",
+              "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+              ],
+              "env": {}
+          },
+          {
+              "name": "pdflatex",
+              "command": "pdflatex",
+              "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+              ],
+              "env": {}
+          },
+          {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+              "%DOCFILE%"
+            ]
+          }
+        ]
+}
