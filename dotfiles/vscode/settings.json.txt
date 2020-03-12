@@ -13,15 +13,36 @@
     // LATEX WORKSHOP
     "latex-workshop.view.pdf.viewer": "browser",
     "latex-workshop.message.update.show": false,
+    "latex-workshop.message.update.show": false,
     "latex-workshop.latex.recipes": [
         {
-          "name": "pdflatex, makeglossaries, pdflatex",
-          "tools": [
-            "pdflatex",
-            "makeglossaries",
-            "pdflatex",
-          ]
-        }
+            "name": "pdflatex, makeglossaries, pdflatex",
+            "tools": [
+                "pdflatex",
+                "makeglossaries",
+                "pdflatex",
+            ]
+        },
+        {
+            "name": "latexmk, makeglossaries, latexmk",
+            "tools": [
+              "latexmk",
+              "makeglossaries",
+              "latexmk",
+            ]
+        },
+        {
+            "name": "latexmk",
+            "tools": [
+              "latexmk",
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+              "pdflatex",
+            ]
+        },
     ],
     "latex-workshop.latex.tools": [
         {
