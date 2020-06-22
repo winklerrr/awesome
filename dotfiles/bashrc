@@ -36,7 +36,7 @@ if [[ -f "$AUTO_COMPLETION" ]]; then
   source "$AUTO_COMPLETION"
 else
   echo "> Unable to find 'bash_completion.sh'"
-  echo "> Maybe you need to install it: 'sudo apt update && sudo apt install bash-completion'"
+  echo "> Maybe you need to install it: 'sudo apt update -y && sudo apt install bash-completion -y'"
 fi
 
 
@@ -118,6 +118,14 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+alias awesome="cd '${PARENT_DIR}'"
+
+alias configs="cd '${THIS_DIR}'"
+alias dotfiles="cd '${THIS_DIR}'"
+
+alias cheatsheets="cd '${PARENT_DIR}/wiki/cheatsheets'"
+alias notes="cd '${PARENT_DIR}/wiki/notes'"
+
 # GIT
 alias g="git"
 
@@ -149,12 +157,6 @@ alias gmail="printf 'Mail: ' && git config user.email"
 alias ginfo="gurl && gbranch && gname && gmail"
 
 # CONFIGS
-alias configs="cd '${THIS_DIR}'"
-alias dotfiles="cd '${THIS_DIR}'"
-alias awesome="cd '${PARENT_DIR}'"
-alias cheatsheets="cd '${PARENT_DIR}/cheatsheets'"
-alias notes="cd '${PARENT_DIR}/notes'"
-
 alias reload="source '${THIS}' && echo '> Done loading ~ AWESOME BASHRC ~'"
 
 alias bashrc="vim '${THIS}' && reload"
