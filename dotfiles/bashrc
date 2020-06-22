@@ -156,6 +156,17 @@ alias gname="printf 'Name: ' && git config user.name"
 alias gmail="printf 'Mail: ' && git config user.email"
 alias ginfo="gurl && gbranch && gname && gmail"
 
+# COPY PASTE
+if grep -q -i microsoft /proc/version; then
+  # on WSL
+  alias copy="clip.exe"
+  alias paste="powershell.exe Get-Clipboard"
+else
+  # on normal linux
+  alias copy="xclip -sel clip"
+  alias paste="xclip -sel clip -o"
+fi
+
 # CONFIGS
 alias reload="source '${THIS}' && echo '> Done loading ~ AWESOME BASHRC ~'"
 
