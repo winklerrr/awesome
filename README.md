@@ -1,4 +1,5 @@
-# The Awesome Repo - Awesome Cheatsheets, Dotfiles & Notes!
+# The Awesome Repo
+## Awesome Dotfiles, Cheatsheets & More!
 
 Keep in mind:
 

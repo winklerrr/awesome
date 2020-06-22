@@ -1,5 +1,7 @@
 #!/bin/bash
 
+##### FUNCTIONS #####
+
 function install {
   FILE="$HOME/$1"
   LINE="$2"
@@ -30,6 +32,9 @@ function ask {
   done
 }
 
+
+##### MAIN #####
+
 echo
 echo "### INSTALLING DOTFILES by winklerrr ###"
 echo
@@ -41,7 +46,7 @@ DOTFILES_DIR="$THIS_DIR/dotfiles"
 echo "> Found the dotfiles in '$DOTFILES_DIR'"
 
 # install all scripts
-ALL="$(ask "> Do you want to install all the dotfiles?")"
+ALL="$(ask "> Do you want to install all dotfiles (bashrc, vimrc, inputrc, etc.)?")"
 
 install ".profile"    "source $HOME/.bashrc"
 install ".bashrc"     "source $DOTFILES_DIR/bashrc"
@@ -51,27 +56,33 @@ install ".inputrc"    "\$include $DOTFILES_DIR/inputrc"
 
 echo "> Done installing dotfiles"
 
+# install tools
+TOOLS="git vim tmux tig xclip"
+if ask "> Do you want to install necessary tools ($TOOLS)?" >/dev/null; then
+  sudo apt update
+  sudo apt install -y $TOOLS
+fi
+
 # check for git credentials
 if ask "> Do you want to check if global git credentials are set?" >/dev/null; then
   name="$(git config --global user.name 2>/dev/null)"
   if [[ "$name" == "" ]]; then
-    read -p ">> git.name: " name
+    read -p ">> Enter git.name: " name
     git config --global user.name "$name" &>/dev/null
   fi
 
   email="$(git config --global user.email 2>/dev/null)"
   if [[ "$email" == "" ]]; then
-    read -p ">> git.email: " email
+    read -p ">> Enter git.email: " email
     git config --global user.email "$email" &>/dev/null
   fi
 
-  echo "> Git credentials are all set ($name, $email)"
+  echo "> Global git credentials are set: $name, $email"
 fi
 
 # reload .bashrc
-if ask "> Do you want to reload the .bashrc now?" >/dev/null; then
+if ask "> Do you want to reload the $HOME/.bashrc now?" >/dev/null; then
   source "$HOME/.bashrc"
-  echo "> Reloaded '$HOME/.bashrc'"
 fi
 
 echo "> All done"
