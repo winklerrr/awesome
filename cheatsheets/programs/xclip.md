@@ -1,5 +1,8 @@
 # Awesome XCLIP Cheatsheet
 
+**Important:** xclip does not work with the linux subsystem!
+For WSL use `clip.exe` instead!
+
 ## Installation
 
 To copy/paste console output install `xclip`:
