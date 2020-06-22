@@ -57,7 +57,7 @@ install ".inputrc"    "\$include $DOTFILES_DIR/inputrc"
 echo "> Done installing dotfiles"
 
 # install tools
-TOOLS="git vim tmux tig xclip"
+TOOLS="git vim tmux tig xclip bash-completion"
 if ask "> Do you want to install necessary tools ($TOOLS)?" >/dev/null; then
   sudo apt update
   sudo apt install -y $TOOLS
