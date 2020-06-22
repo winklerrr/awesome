@@ -179,7 +179,7 @@ alias inputrc="vim '${THIS_DIR}/inputrc'"
 ################################## FUNCTIONS ###################################
 
 function cd {
-  builtin cd $1 && ls
+  builtin cd "$@" && ls
 }
 
 function mkdir {
