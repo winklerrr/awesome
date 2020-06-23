@@ -36,7 +36,7 @@ if [[ -f "$AUTO_COMPLETION" ]]; then
   source "$AUTO_COMPLETION"
 else
   echo "> Unable to find 'bash_completion.sh'"
-  echo "> Maybe you need to install it: 'sudo apt update -y && sudo apt install bash-completion -y'"
+  echo "> Maybe you need to install it: 'sudo apt update && sudo apt install bash-completion -y'"
 fi
 
 
