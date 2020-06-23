@@ -37,16 +37,16 @@ bash ~/awesome/install.sh
 
 ```
 # for .bashrc
-echo "source ~/awesome/dotfiles/bashrc" >> ~/.bashrc && source ~/.bashrc
+echo "source ~/awesome/settings/dotfiles/bashrc" >> ~/.bashrc && source ~/.bashrc
 
 # for .vimrc
-echo "source ~/awesome/dotfiles/vimrc" >> ~/.vimrc
+echo "source ~/awesome/settings/dotfiles/vimrc" >> ~/.vimrc
 
 # for .tmux.conf
-echo "source ~/awesome/dotfiles/tmux.conf" >> ~/.tmux.conf && tmux source-file ~/.tmux.conf
+echo "source ~/awesome/settings/dotfiles/tmux.conf" >> ~/.tmux.conf && tmux source-file ~/.tmux.conf
 
 # for .inputrc
-echo '$include ~/awesome/dotfiles/inputrc' >> ~/.inputrc
+echo '$include ~/awesome/settings/dotfiles/inputrc' >> ~/.inputrc
 ```
 
 ### Aliases & Functions from the Awesome Dotfiles

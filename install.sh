@@ -24,10 +24,10 @@ function install {
 
 function ask {
   while true; do
-    read -p "$1 [y/n] " answer
+    read -p "$1 [Y/n] " answer
     case "$answer" in
-      y|Y ) echo "true"; return 0;;
-      n|N ) echo "false"; return 1;;
+      y|Y|"" ) echo "true" ; return 0;;
+      n|N    ) echo "false"; return 1;;
     esac
   done
 }
@@ -41,7 +41,7 @@ echo
 
 # get the current absolute directory
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE}")" &>/dev/null && pwd)"
-DOTFILES_DIR="$THIS_DIR/dotfiles"
+DOTFILES_DIR="$THIS_DIR/settings/dotfiles"
 
 echo "> Found the dotfiles in '$DOTFILES_DIR'"
 
