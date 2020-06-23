@@ -67,13 +67,15 @@ fi
 if ask "> Do you want to check if global git credentials are set?" >/dev/null; then
   name="$(git config --global user.name 2>/dev/null)"
   if [[ "$name" == "" ]]; then
-    read -p ">> Enter git.name: " name
+    echo    ">> 'git.name' not set!"
+    read -p ">> Please enter a name: " name
     git config --global user.name "$name" &>/dev/null
   fi
 
   email="$(git config --global user.email 2>/dev/null)"
   if [[ "$email" == "" ]]; then
-    read -p ">> Enter git.email: " email
+    echo    ">> 'git.email' not set!"
+    read -p ">> Please enter a email: " email
     git config --global user.email "$email" &>/dev/null
   fi
 
@@ -81,8 +83,4 @@ if ask "> Do you want to check if global git credentials are set?" >/dev/null; t
 fi
 
 # reload .bashrc
-if ask "> Do you want to reload the $HOME/.bashrc now?" >/dev/null; then
-  source "$HOME/.bashrc"
-fi
-
-echo "> All done"
+echo "> All done. Please restart bash in order to activate the new changes."
