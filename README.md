@@ -11,19 +11,25 @@ So for god's sake use `man`!
 
 ### Installing the Awesome Dotfiles
 
-1. Clone the repo to the `awesome` folder in your home path:
+1. If `git` isn't installed (e.g. for a new WSL setup), do:
+
+```
+sudo apt update && sudo apt install git -y
+```
+
+2. Clone the repo to the `awesome` folder in your home path:
 
 ```
 git clone git@github.com:winklerrr/awesome.git ~/awesome
 ```
 
-2. Then install the dotfiles by executing `install.sh`:
+3. Then install the dotfiles by executing `install.sh`:
 
 ```
 bash ~/awesome/install.sh
 ```
 
-3. Or do it manually by adding `source` commands the corresponding config files:
+1. Or do it manually by adding `source` commands the corresponding config files:
 
 ```
 # for .bashrc
