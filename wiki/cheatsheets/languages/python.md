@@ -1,5 +1,38 @@
 # Awesome Python Cheatsheet
 
+## Relative Imports
+
+In Python3 relative import DO NOT work!
+Let's assume we have the following project structure:
+
+```
+package/
+  __init__.py
+  main.py
+
+  subpackage_1/
+    __init__.py
+    module_1.py
+
+  subpackage_2/
+    __init__.py
+    module_2.py
+
+```
+
+So, in order to test code from a single file, say `module2.py`, which imports code from a file in a sibling package, say `module1.py`, do:
+
+```
+# in module2.py
+from package.subpackage1.module_1 import a_function
+```
+
+Now `cd` back to `package` and call Python like so:
+
+```
+python3 -m package.subpackage2.module_2
+```
+
 ## Fine Tuning
 
 **Make Python scripts executable**
