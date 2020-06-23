@@ -16,6 +16,7 @@
 THIS="$BASH_SOURCE"
 THIS_DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
 PARENT_DIR="$(dirname "${THIS_DIR}")"
+ROOT_DIR="$(dirname "${PARENT_DIR}")"
 
 
 ############################### INTERNAL FUNCTIONS #############################
@@ -118,13 +119,14 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias awesome="cd '${PARENT_DIR}'"
+alias awesome="cd '${ROOT_DIR}'"
 
+alias settings="cd '${PARENT_DIR}'"
 alias configs="cd '${THIS_DIR}'"
 alias dotfiles="cd '${THIS_DIR}'"
 
-alias cheatsheets="cd '${PARENT_DIR}/wiki/cheatsheets'"
-alias notes="cd '${PARENT_DIR}/wiki/notes'"
+alias cheatsheets="cd '${ROOT_DIR}/wiki/cheatsheets'"
+alias notes="cd '${ROOT_DIR}/wiki/notes'"
 
 # GIT
 alias g="git"
