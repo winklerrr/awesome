@@ -23,7 +23,7 @@ sudo apt update && sudo apt install git -y
 git clone git@github.com:winklerrr/awesome.git ~/awesome
 ```
 
-3. a) Then install the dotfiles by executing `install.sh`:
+3. a) Then install the dotfiles by executing `install.sh`. This will also install some necessary packages.
 
 ```
 bash ~/awesome/install.sh
