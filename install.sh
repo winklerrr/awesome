@@ -83,4 +83,4 @@ if ask "> Do you want to check if global git credentials are set?" >/dev/null; t
 fi
 
 # reload .bashrc
-echo "> All done. Please restart bash in order to activate the new changes."
+echo "> All done. Please restart bash in order to activate the new changes (or try: exec bash -l)."
