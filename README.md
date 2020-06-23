@@ -20,7 +20,11 @@ sudo apt update && sudo apt install git -y
 2. Clone the repo to the `awesome` folder in your home path:
 
 ```
+# using ssh
 git clone git@github.com:winklerrr/awesome.git ~/awesome
+
+# using https
+git clone https://github.com/winklerrr/awesome.git ~/awesome
 ```
 
 3. a) Then install the dotfiles by executing `install.sh`. This will also install some necessary packages.
