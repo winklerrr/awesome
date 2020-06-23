@@ -43,7 +43,6 @@ git reset HEAD~1  # remove commits
 **Rename commit messages**
 
 1. To rename one or more of the last `n` commits use:
-
 ```
 git rebase -i HEAD~n
 ```
@@ -55,7 +54,6 @@ git rebase -i HEAD~n
 **Showing the changes of a commit** (Source: [stackoverflow.com](https://stackoverflow.com/questions/17563726/how-to-see-the-changes-in-a-git-commit))
 
 Use the `COMMIT` hash:
-
 ```
 git show COMMIT
 ```
@@ -63,13 +61,11 @@ git show COMMIT
 **Pushing a detached head** (Source: [redgreenrepeat.com](http://redgreenrepeat.com/2018/06/08/how-to-push-a-detached-git-head/))
 
 The general command looks like:
-
 ```
 git push <remote name> HEAD:<remote branch name>
 ```
 
 For example:
-
 ```
 git push origin HEAD:testing
 ```
@@ -86,7 +82,6 @@ git checkout -b <new-branch>  # create and checkout new branch
 **Only show the current branch**
 
 Print the current branch (the one with the asterik when doing `git branch`):
-
 ```
 git branch | grep '*' | cut -c 3-
 ```
@@ -105,7 +100,6 @@ git checkout --track <remote-branch>  # create a new local branch which tracks t
 **Check and set git credentials**
 
 To check your current git credentials:
-
 ```
 git config --list  # to see all the config
 
@@ -115,23 +109,25 @@ git config user.email
 ```
 
 To set new credentials use:
-
 ```
 # --global is optional
 git config --global user.name "Sandro Winkler"
 git config --global user.email "you@domain.com"
 ```
 
-**Change remote URL from https to ssh** (Source: [github.com](https://help.github.com/en/github/using-git/changing-a-remotes-url))
+**Change remote URL from HTTPS to SSH** (Source: [github.com](https://help.github.com/en/github/using-git/changing-a-remotes-url))
 
-Show remote urls:
-
+To show remote URLs of a local repository, do:
 ```
 git remote -v
 ```
 
-Change remote url:
-
+To change the remote URL of a local repository, do:
 ```
-git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+git remote set-url origin git@github.com:<USERNAME>/<REPOSITORY>.git
+```
+
+Replace `<USERNAME>` and `<REPOSITORY>` accordingly. So for example with this repo:
+```
+git remote set-url origin git@github.com:winklerrr/awesome.git
 ```
