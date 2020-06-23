@@ -134,8 +134,10 @@ alias g="git"
 alias gs="git status"
 alias gd="git diff HEAD"  # show diff for all (given) files
 alias gds="git diff --staged"  # show diff for staged files
+
 alias gl="git log"
 alias gb="git branch"
+alias gm="git merge"
 
 alias ga="git add"
 alias ga.="git add ."
