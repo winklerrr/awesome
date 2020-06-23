@@ -1,5 +1,13 @@
 # Awesome Python Cheatsheet
 
+## Basics
+
+**Installing PIP**
+
+```
+sudo apt update && sudo apt install python3-pip
+```
+
 ## Relative Imports
 
 In Python3 relative import DO NOT work!
