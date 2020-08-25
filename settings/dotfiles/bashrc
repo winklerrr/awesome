@@ -164,7 +164,11 @@ alias gmail="printf 'Mail: ' && git config user.email"
 alias ginfo="gurl && gbranch && gname && gmail"
 
 # COPY PASTE
-if grep -q -i microsoft /proc/version; then
+if [[ ! -r /proc/version ]]; then
+  # on MAC
+  alias copy="pbcopy"
+  alias paste="pbpaste"
+elif grep -q -i microsoft /proc/version; then
   # on WSL
   alias copy="clip.exe"
   alias paste="powershell.exe Get-Clipboard"
