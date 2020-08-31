@@ -101,7 +101,7 @@ alias c="clear"
 alias md="mkdir"
 
 alias v="vim"
-alias doch="sudo !!"
+alias doch='sudo "$BASH" -c "$(history -p !!)"'
 
 # LIST DIRECTORY
 #   -A to show all except `.` and `..`
