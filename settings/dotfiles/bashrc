@@ -50,6 +50,9 @@ fi
 bind "set show-all-if-ambiguous on"
 bind "TAB:menu-complete"
 
+# SUPPRESS THE MACOS WARNING FOR NOT USING ZSH
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # USE XTREM AS DEFAULT
 export TERM=xterm
 
