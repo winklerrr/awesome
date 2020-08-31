@@ -4,22 +4,25 @@
 
 function install {
   FILE="$HOME/$1"
-  LINE="$2"
+  COMMAND="$2"
+  DST="$3"
 
   if [[ "$ALL" == "false" ]]; then
-    ADD="$(ask "> Add '$LINE' to '$FILE'?")"
+    ADD="$(ask "> Add '$COMMAND $DST' to '$FILE'?")"
   else
     ADD="true"
   fi
 
   if [[ "$ADD" == "true" ]]; then
-    if [[ ! -f "$FILE" ]] || ! grep -Fxq "$LINE" "$FILE"; then
-      echo "$LINE" >> "$FILE" && echo ">> Successfully added '$LINE' to '$FILE'"
+    if [[ ! -f "$FILE" ]] || ! grep -Fxq "$COMMAND $DST" "$FILE"; then
+      echo "if [[ -f \"$DST\" ]]; then" >> "$FILE"
+      echo "  $COMMAND $DST" >> "$FILE"
+      echo "fi" >> "$FILE"
+      echo ">> Successfully added '$COMMAND $DST' to '$FILE'"
     else
-      echo ">> '$LINE' was already added to '$FILE'"
+      echo ">> '$COMMAND $DST' was already added to '$FILE'"
     fi
   fi
-    
 }
 
 function ask {
@@ -48,11 +51,13 @@ echo "> Found the dotfiles in '$DOTFILES_DIR'"
 # install all scripts
 ALL="$(ask "> Do you want to install all dotfiles (bashrc, vimrc, inputrc, etc.)?")"
 
-install ".profile"    "source $HOME/.bashrc"
-install ".bashrc"     "source $DOTFILES_DIR/bashrc"
-install ".vimrc"      "source $DOTFILES_DIR/vimrc"
-install ".tmux.conf"  "source $DOTFILES_DIR/tmux.conf"
-install ".inputrc"    "\$include $DOTFILES_DIR/inputrc"
+#         src file          command     dst path
+install   ".profile"        "source"    "$HOME/.bashrc"
+install   ".bash_profile"   "source"    "$HOME/.bashrc"
+install   ".bashrc"         "source"    "$DOTFILES_DIR/bashrc"
+install   ".vimrc"          "source"    "$DOTFILES_DIR/vimrc"
+install   ".tmux.conf"      "source"    "$DOTFILES_DIR/tmux.conf"
+install   ".inputrc"        "\$include" "$DOTFILES_DIR/inputrc"
 
 echo "> Done installing dotfiles"
 
