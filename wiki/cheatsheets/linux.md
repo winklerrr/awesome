@@ -4,15 +4,17 @@
 
 **Finding information about commands**
 
-Show the full path of a command: 
+Show the full path of a command (use `-a` to show all locations): 
 
 ```
 which COMMAND
+which -a COMMAND
 ```
 
 Show type information about a command (`-a` to show all locations of the command):
 
 ```
+type COMMAND
 type -a COMMAND
 ```
 
