@@ -1,2 +1,5 @@
 # no vim swap files
 *.swp
+
+# no macOS files
+.DS_Store
