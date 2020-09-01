@@ -6,6 +6,7 @@ Some basic commands that should be known:
 
 ```bash
 dirname PATH  # output the directory name of the given path
+which COMMAND # shows where the binary of the command is located
 ```
 
 
@@ -17,6 +18,14 @@ The first line of a script file which tells the computer how the script should b
 ```bash
 #!/bin/bash
 ```
+
+The recommended version of the shebang line looks like this:
+
+```
+#!/usr/bin/env bash
+```
+
+This line will make sure that also other bash installations on the system will be considered even if they are installed in another location different from `/bin/bash` (for example: when updating to a new bash verson with Homebrew on macOS).
 
 This allows the script to be executed in the following manner:
 
