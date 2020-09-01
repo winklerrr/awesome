@@ -1,16 +1,26 @@
 # Awesome Bash Cheatsheet
 
-**Using the Shebang**
+## Basics
+
+Some basic commands that should be known:
+
+```bash
+dirname PATH  # output the directory name of the given path
+```
+
+
+
+### The Shebang
 
 The first line of a script file which tells the computer how the script should be run is the so called "shebang" line:
 
-```
+```bash
 #!/bin/bash
 ```
 
 This allows the script to be executed in the following manner:
 
-```
+```bash
 ./script.sh
 ```
 
@@ -21,14 +31,14 @@ This allows the script to be executed in the following manner:
 
 In bash a variable can be declared like so:
 
-```
+```bash
 my_var=value
 ```
 
 The value is saved as a string.
 To use the value of a given variable use `$` like so:
 
-```
+```bash
 echo $my_var
 ```
 
@@ -38,7 +48,7 @@ echo $my_var
 
 A bash function can be defined with the keyword `function` before the function name or with parentheses after the function name:
 
-```
+```bash
 function function_name {
   COMMADS
 }
@@ -66,7 +76,7 @@ function_name () {
 
 The basic conditional structure looks like:
 
-```
+```bash
 #!/bin/bash
 
 var1="foo"
