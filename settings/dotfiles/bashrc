@@ -145,11 +145,12 @@ alias gds="git diff --staged"  # show diff for staged files
 alias gl="git log"
 alias gb="git branch"
 alias gm="git merge"
+alias gr="git reset HEAD~1"  # remove all files from stages without losing modifications
 
 alias ga="git add"
-alias ga.="git add ."
-alias gaa="git add -A"
-alias gr="git reset HEAD~1"  # remove all files from stages without losing modifications
+alias ga.="git add ."  # add all changes in the current directory to the stage (also untracked)
+alias gaa="git add --all"  # add all changes to the stage (also untracked)
+alias gau="git add --update"  # add all changes to the stage for tracked files only
 
 alias gf="git fetch"
 alias gp="git pull"
