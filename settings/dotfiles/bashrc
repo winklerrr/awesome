@@ -145,7 +145,8 @@ alias gds="git diff --staged"  # show diff for staged files
 alias gl="git log"
 alias gb="git branch"
 alias gm="git merge"
-alias gr="git reset HEAD~1"  # remove all files from stages without losing modifications
+alias gr="git reset HEAD"  # remove all files from stages without losing modifications
+alias gres="git reset --soft HEAD~1"  # remove the last commit without removing the commited files from the stage 
 
 alias ga="git add"
 alias ga.="git add ."  # add all changes in the current directory to the stage (also untracked)
@@ -156,8 +157,8 @@ alias gf="git fetch"
 alias gp="git pull"
 alias gpsh="git push"
 
-alias gre="git rebase"  # rebase from origin
-alias grei="git rebase -i"  # rebase locally to rename, reorder and change local commits
+alias greb="git rebase"  # rebase from origin
+alias grebi="git rebase -i"  # rebase locally to rename, reorder and change local commits
 
 alias gac="gca"  # alias for 'git add commit' function
 alias gaac="gcaa"  # alias for 'git add all commit' function
