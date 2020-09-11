@@ -24,7 +24,7 @@ ROOT_DIR="$(dirname "${PARENT_DIR}")"
 
 # RETURN THE CURRENT GIT BRANCH OR AN EMPTY STRING
 # https://medium.com/@thucnc/how-to-show-current-git-branch-with-colors-in-bash-prompt-380d05a24745
-function get_current_git_branch {
+get_current_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/<\1> /'
 }
 
@@ -149,14 +149,14 @@ alias gm="git merge"
 alias ga="git add"
 alias ga.="git add ."
 alias gaa="git add -A"
-alias gres="git reset HEAD~1"
+alias gr="git reset HEAD~1"  # remove all files from stages without losing modifications
 
 alias gf="git fetch"
 alias gp="git pull"
 alias gpsh="git push"
 
-alias gre="git rebase"
-alias gri="git rebase -i"
+alias gre="git rebase"  # rebase from origin
+alias grei="git rebase -i"  # rebase locally to rename, reorder and change local commits
 
 alias gac="gca"  # alias for 'git add commit' function
 alias gaac="gcaa"  # alias for 'git add all commit' function
@@ -191,7 +191,7 @@ alias tmuxrc="vim '${THIS_DIR}/tmux.conf'"
 alias inputrc="vim '${THIS_DIR}/inputrc'"
 
 
-################################## FUNCTIONS ###################################
+############################ BASIC FUNCTIONS ###################################
 
 function cd {
   builtin cd "$@" && ls
@@ -205,8 +205,11 @@ function mkdir {
   fi
 }
 
+
+############################## GIT FUNCTIONS ###################################
+
 # GIT COMMIT
-function gc {
+gc () {
   if [ -z "$1" ]; then
     git commit 
   else 
@@ -216,19 +219,19 @@ function gc {
 
 # GIT COMMIT ALL
 #   add all changes from the current directory and commit them
-function gca {
+gca () {
   git add . && gc "$*"
 }
 
 # GIT COMMIT ALL ALL
 #   add all changes regardless of their directory and commit them
-function gcaa {
+gcaa () {
   git add -A && gc "$*"
 }
 
 # GIT COMMIT AMEND
 #   commit with --amend and --no-edit
-function gcamend {
+gcamend () {
   if [[ "$1" == "." ]]; then
     git add .
   elif [[ "$1" == "-A" ]]; then
@@ -244,13 +247,36 @@ function gcamend {
 # GIT COMMIT AMEND ALL
 #   add all changes from the current repository 
 #   and commit them with --amend and --no-edit
-function gcamenda {
+gcamenda () {
   gcamend .
 }
 
 # GIT COMMIT AMEND ALL ALL
 #   add all changes regardless of their directory
 #   and commit them with --amend and --no-edit
-function gcamendaa {
+gcamendaa () {
   gcamend -A
 }
+
+
+############################## NS FUNCTIONS ###################################
+
+# START ANDROID EMULATION
+android-sim () {
+  if [[ -z "$1" ]]; then
+    echo "No Android device supplied as argument!"
+    return 1
+  fi
+
+  if [[ -d "$ANDROID_HOME" ]]; then
+    (
+      cd "$ANDROID_HOME/emulator" 
+      ./emulator "@$1" &
+    )  &>/dev/null 
+  else
+    echo "The variable ANDROID_HOME is not set to a correct directory!"
+  fi
+}
+
+
+
