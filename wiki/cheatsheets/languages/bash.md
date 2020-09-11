@@ -2,14 +2,14 @@
 
 ## Basics
 
+A good tutorial to update the current bash version can be found [here](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba).
+
 Some basic commands that should be known:
 
 ```bash
 dirname PATH  # output the directory name of the given path
 which COMMAND # shows where the binary of the command is located
 ```
-
-
 
 ### The Shebang
 
@@ -21,7 +21,7 @@ The first line of a script file which tells the computer how the script should b
 
 The recommended version of the shebang line looks like this:
 
-```
+```bash
 #!/usr/bin/env bash
 ```
 
