@@ -1,8 +1,16 @@
 {
     // VSCODE BASICS
     "editor.minimap.enabled": false,
-    // terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",  // WINDOWS ONLY
+    "editor.formatOnSave": true, 
+    "editor.tabSize": 2,
+    terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",  
+    "terminal.integrated.shell.osx": "/bin/bash",
     "window.zoomLevel": 0,
+    "workbench.startupEditor": "newUntitledFile",
+
+    // PRETTIER
+    "prettier.printWidth": 120,
+    "prettier.singleQuote": true,
 
     // VIM
     "vim.useCtrlKeys": false,  // allow normal copy paste to work
