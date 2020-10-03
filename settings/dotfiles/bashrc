@@ -157,8 +157,8 @@ alias gf="git fetch"
 alias gp="git pull"
 alias gpsh="git push"
 
-alias greb="git rebase"  # rebase from origin
-alias grebi="git rebase -i"  # rebase locally to rename, reorder and change local commits
+alias gre="git rebase"  # rebase from origin
+alias grei="git rebase -i"  # rebase locally to rename, reorder and change local commits
 
 alias gac="gca"  # alias for 'git add commit' function
 alias gaac="gcaa"  # alias for 'git add all commit' function
