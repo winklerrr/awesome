@@ -143,8 +143,11 @@ alias gd="git diff HEAD"  # show diff for all (given) files
 alias gds="git diff --staged"  # show diff for staged files
 
 alias gl="git log"
-alias gb="git branch"  
 alias gm="git merge"
+
+alias gb="git branch"  
+alias gbc="git checkout -b"
+
 alias gr="git reset HEAD"  # remove all files from stages without losing modifications
 alias gres="git reset --soft HEAD~1"  # remove the last commit without removing the commited files from the stage 
 
