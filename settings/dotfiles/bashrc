@@ -101,7 +101,10 @@ unalias -a
 
 # GENERAL
 alias c="clear"
+alias cd="my_cd"
+
 alias md="mkdir"
+alias mkdir="my_mkdir"
 
 alias v="vim"
 alias doch='sudo "$BASH" -c "$(history -p !!)"'
@@ -139,14 +142,16 @@ alias notes="cd '${ROOT_DIR}/wiki/notes'"
 alias g="git"
 
 alias gs="git status"
-alias gd="git diff HEAD"  # show diff for all (given) files
+alias gd="gdiff"
+alias gdiff="git diff Head"  # show diff for all (given) files
 alias gds="git diff --staged"  # show diff for staged files
 
 alias gl="git log"
 alias gm="git merge"
 
 alias gb="git branch"  
-alias gbc="git checkout -b"
+alias gbc="git checkout -b"  # create a new branch
+alias gbd="git branch -d"  # delete branch
 
 alias gr="git reset HEAD"  # remove all files from stages without losing modifications
 alias gres="git reset --soft HEAD~1"  # remove the last commit without removing the commited files from the stage 
@@ -163,14 +168,16 @@ alias gpsh="git push"
 alias gre="git rebase"  # rebase from origin
 alias grei="git rebase -i"  # rebase locally to rename, reorder and change local commits
 
-alias gac="gca"  # alias for 'git add commit' function
-alias gaac="gcaa"  # alias for 'git add all commit' function
+alias gca="gac"
+alias gcaa="gaac"  
+alias gac="git_add_commit"  
+alias gaac="git_add_all_commit"  
 
-alias gurl="printf 'URL: ' && git config remote.origin.url"
-alias gbranch="printf 'Branch: ' && git branch | grep '*' | cut -c 3-"
-alias gname="printf 'Name: ' && git config user.name"
-alias gmail="printf 'Mail: ' && git config user.email"
-alias ginfo="gurl && gbranch && gname && gmail"
+alias gurl="git config remote.origin.url"
+alias gbranch="git branch | grep '*' | cut -c 3-"
+alias gname="git config user.name"
+alias gmail="git config user.email"
+alias ginfo="git_info"
 
 # COPY PASTE
 if [[ ! -r /proc/version ]]; then
@@ -198,11 +205,11 @@ alias inputrc="vim '${THIS_DIR}/inputrc'"
 
 ############################ BASIC FUNCTIONS ###################################
 
-function cd {
+my_cd () {
   builtin cd "$@" && ls
 }
 
-function mkdir {
+my_mkdir () {
   if [ $# -eq 1 ]; then
     /bin/mkdir $1 && cd $1
   else
@@ -213,8 +220,14 @@ function mkdir {
 
 ############################## GIT FUNCTIONS ###################################
 
-# GIT COMMIT
-gc () {
+git_info () {
+  printf 'URL: ' && gurl 
+  printf 'Branch: ' && gbranch 
+  printf 'Name: ' && gname 
+  printf 'Mail: ' && gmail
+}
+
+git_commit () {
   if [ -z "$1" ]; then
     git commit 
   else 
@@ -222,21 +235,18 @@ gc () {
   fi
 }
 
-# GIT COMMIT ALL
-#   add all changes from the current directory and commit them
-gca () {
+# add all changes from the current directory and commit them
+git_add_commit () {
   git add . && gc "$*"
 }
 
-# GIT COMMIT ALL ALL
-#   add all changes regardless of their directory and commit them
-gcaa () {
+# add all changes regardless of their directory and commit them
+git_add_all_commit () {
   git add -A && gc "$*"
 }
 
-# GIT COMMIT AMEND
-#   commit with --amend and --no-edit
-gcamend () {
+# commit with --amend and --no-edit
+git_commit_amend () {
   if [[ "$1" == "." ]]; then
     git add .
   elif [[ "$1" == "-A" ]]; then
@@ -249,18 +259,16 @@ gcamend () {
   git commit --amend --no-edit
 }
 
-# GIT COMMIT AMEND ALL
-#   add all changes from the current repository 
-#   and commit them with --amend and --no-edit
-gcamenda () {
-  gcamend .
+# add all changes from the current repository 
+# and commit them with --amend and --no-edit
+git_add_commit_amend () {
+  git_commit_amend .
 }
 
-# GIT COMMIT AMEND ALL ALL
-#   add all changes regardless of their directory
-#   and commit them with --amend and --no-edit
-gcamendaa () {
-  gcamend -A
+#  add all changes regardless of their directory
+#  and commit them with --amend and --no-edit
+git_add_all_commit_amend () {
+  git_commit_amend -A
 }
 
 
