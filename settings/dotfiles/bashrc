@@ -142,9 +142,11 @@ alias notes="cd '${ROOT_DIR}/wiki/notes'"
 alias g="git"
 
 alias gs="git status"
+
 alias gd="gdiff"
 alias gdiff="git diff Head"  # show diff for all (given) files
-alias gds="git diff --staged"  # show diff for staged files
+alias gds="gdiffs"  # show diff for staged files
+alias gdiffs="git diff --staged"  # show diff for all (given) files
 
 alias gl="git log"
 alias gm="git merge"
@@ -163,7 +165,9 @@ alias gau="git add --update"  # add all changes to the stage for tracked files o
 
 alias gf="git fetch"
 alias gp="git pull"
+
 alias gpsh="git push"
+alias gpshu="git_push_set_upstream"
 
 alias gre="git rebase"  # rebase from origin
 alias grei="git rebase -i"  # rebase locally to rename, reorder and change local commits
@@ -237,12 +241,12 @@ git_commit () {
 
 # add all changes from the current directory and commit them
 git_add_commit () {
-  git add . && gc "$*"
+  git add . && git_commit "$*"
 }
 
 # add all changes regardless of their directory and commit them
 git_add_all_commit () {
-  git add -A && gc "$*"
+  git add -A && git_commit "$*"
 }
 
 # commit with --amend and --no-edit
@@ -265,10 +269,23 @@ git_add_commit_amend () {
   git_commit_amend .
 }
 
-#  add all changes regardless of their directory
-#  and commit them with --amend and --no-edit
+# add all changes regardless of their directory
+# and commit them with --amend and --no-edit
 git_add_all_commit_amend () {
   git_commit_amend -A
+}
+
+git_push_set_upstream () {
+  if [[ ! -z $2 ]]; then
+    # two parameters
+    git push --set-upstream "$1" "$2"
+  elif [[ ! -z $1 ]]; then
+    # one parameters, using origin as default
+    git push --set-upstream origin "$1"
+  fi
+
+  # no parameter, using origin and current branch name as default
+  git push --set-upstream origin "$(gbranch)"
 }
 
 
