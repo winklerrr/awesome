@@ -172,8 +172,8 @@ alias gp="git pull"
 alias gpsh="git push"
 alias gpshu="git_push_set_upstream"
 
-alias gre="git rebase"  # rebase from origin
-alias grei="git rebase -i"  # rebase locally to rename, reorder and change local commits
+alias greb="git rebase"  # rebase from origin
+alias grebi="git rebase -i"  # rebase locally to rename, reorder and change local commits
 
 alias gca="gac"
 alias gcaa="gaac"  
@@ -237,9 +237,11 @@ git_info () {
 # remove files from staged area without losing modifications
 git_remove_staged () {
   if [ -z "$1" ]; then
-    git restore --staged .  # remove all files in the current workind dir
+    git reset HEAD -- .  # remove all files in the current workind dir
+    #git restore --staged -- .
   else 
-    git restore --staged "$*"  # remove all files in the current workind dir
+    git reset HEAD -- "$*"  # remove all files in the current workind dir
+    #git restore --staged -- "$*"
   fi
 }
 
