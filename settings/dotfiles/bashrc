@@ -155,7 +155,10 @@ alias gb="git branch"
 alias gbc="git checkout -b"  # create a new branch
 alias gbd="git branch -d"  # delete branch
 
-alias gr="git reset HEAD"  # remove all files from stages without losing modifications
+alias grm="git_remove_staged"  # remove given files or all from stage back to unstaged
+alias grma="git_remove_staged_all"  # remove given files or all from stage back to unstaged
+
+alias gr="git reset HEAD"  # remove all files from stage back to unstaged
 alias gres="git reset --soft HEAD~1"  # remove the last commit without removing the commited files from the stage 
 
 alias ga="git add"
@@ -229,6 +232,19 @@ git_info () {
   printf 'Branch: ' && gbranch 
   printf 'Name: ' && gname 
   printf 'Mail: ' && gmail
+}
+
+# remove files from staged area without losing modifications
+git_remove_staged () {
+  if [ -z "$1" ]; then
+    git restore --staged .  # remove all files in the current workind dir
+  else 
+    git restore --staged "$*"  # remove all files in the current workind dir
+  fi
+}
+
+git_remove_staged_all () {
+  git_remove_staged "*" # remove all files in the current workind dir
 }
 
 git_commit () {
