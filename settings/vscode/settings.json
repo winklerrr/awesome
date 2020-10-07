@@ -3,9 +3,10 @@
     "editor.minimap.enabled": false,
     "editor.formatOnSave": true, 
     "editor.tabSize": 2,
-    terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",  
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",  
     "terminal.integrated.shell.osx": "/bin/bash",
     "window.zoomLevel": 0,
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "newUntitledFile",
 
     // PRETTIER
@@ -17,6 +18,10 @@
     "vim.handleKeys": {
         "<C-r>": true,  // activate redo
     },
+    
+    // GIT
+    "git.autofetch": true,
+    
 
     // LATEX WORKSHOP
     "latex-workshop.view.pdf.viewer": "browser",
