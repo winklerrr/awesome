@@ -87,5 +87,13 @@ if ask "> Do you want to check if global git credentials are set?" >/dev/null; t
   echo "> Global git credentials are set: $name, $email"
 fi
 
+# set further git configs
+if ask "> Do you want to set VSCode as your default merge and diff tool?" >/dev/null; then
+  git config --global merge.tool vscode
+  git config --global mergetool.vscode.cmd 'code --wait "$MERGED"'
+  git config --global diff.tool vscode
+  git config --global difftool.vscode.cmd 'code --wait --diff "$LOCAL" "$REMOTE"'
+fi
+
 # reload .bashrc
 echo "> All done. Please restart bash in order to activate the new changes (or try: exec bash -l)."
