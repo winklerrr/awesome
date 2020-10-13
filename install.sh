@@ -88,9 +88,12 @@ if ask "> Do you want to check if global git credentials are set?" >/dev/null; t
 fi
 
 # set further git configs
-if ask "> Do you want to set VSCode as your default merge and diff tool?" >/dev/null; then
+if ask "> Do you want to set VSCode as your default git editor (also merge and diff tool)?" >/dev/null; then
+  git config --global core.editor "code --wait"
+  
   git config --global merge.tool vscode
   git config --global mergetool.vscode.cmd 'code --wait "$MERGED"'
+  
   git config --global diff.tool vscode
   git config --global difftool.vscode.cmd 'code --wait --diff "$LOCAL" "$REMOTE"'
 fi
