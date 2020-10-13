@@ -1,29 +1,24 @@
 {
-    // VSCODE BASICS
     "editor.minimap.enabled": false,
-    "editor.formatOnSave": true, 
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modifications"
     "editor.tabSize": 2,
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",  
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
     "terminal.integrated.shell.osx": "/bin/bash",
     "window.zoomLevel": 0,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "newUntitledFile",
 
-    // PRETTIER
     "prettier.printWidth": 120,
     "prettier.singleQuote": true,
 
-    // VIM
-    "vim.useCtrlKeys": false,  // allow normal copy paste to work
+    "vim.useCtrlKeys": false,
     "vim.handleKeys": {
-        "<C-r>": true,  // activate redo
+        "<C-r>": true,
     },
     
-    // GIT
     "git.autofetch": true,
     
-
-    // LATEX WORKSHOP
     "latex-workshop.view.pdf.viewer": "browser",
     "latex-workshop.message.update.show": false,
     "latex-workshop.latex.recipes": [
