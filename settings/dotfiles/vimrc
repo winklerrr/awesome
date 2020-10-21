@@ -9,6 +9,9 @@
 "##                                                                            ##
 "################################################################################
 
+" VIM ONLY, NO VI COMPATIBILITY.
+set nocompatible
+
 
 "#################################### STYLING ###################################
 
@@ -18,26 +21,31 @@ colo peachpuff
 " SYNTAX HIGHLIGHTING
 syntax on
 
-
-"################################### SETTINGS ##################################
-
-" CONVERT NEW TABS TO SPACES
-set expandtab
-
-" SET WIDTH OF TABS
-set shiftwidth=2
-set softtabstop=2
-
-" ACTIVATE AUTOINDENT
-set autoindent
-
 " SHOW LINE NUMBERS
 set number
 
 " TURN OFF THAT ANNOYING BEEP
 set visualbell
 
-"#################################### CURSOR ###################################
+
+"################################### SETTINGS ###################################
+
+" ENCODING
+set encoding=utf-8
+
+" CONVERT NEW TABS TO SPACES
+set expandtab
+
+" SET WIDTH OF TABS
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+" ACTIVATE AUTOINDENT
+set autoindent
+
+
+"#################################### CURSOR ####################################
 
 " SHOW A BLOCK CURSOR IN NORMAL MODE
 let &t_SI.="\e[5 q"  " insert mode
@@ -46,8 +54,29 @@ let &t_EI.="\e[1 q"  " normal mode
 let &t_ti.="\e[1 q"  " enter termcap mode
 let &t_te.="\e[0 q"  " exit termcap mode
 
+" SHOW 5 LINES ABOVE/BELOW THE CURSOR WHEN SCROLLING WITH A MOUSE
+set scrolloff=5
 
-"################################# SPECIAL CHARS ###############################
+" SPEED UP SCROLLING
+set ttyfast
+
+
+"#################################### SEARCH ####################################
+
+" HIGHLIGHT MATCHING SEARCH PATTERNS
+set hlsearch
+
+" ENABLE INCREMENTAL SEARCH
+set incsearch
+
+" INCLUDE MATCHING UPPERCASE WORDS WITH LOWERCASE SEARCH TERM
+set ignorecase
+
+" INCLUDE ONLY UPPERCASE WORDS WITH UPPERCASE SEARCH TERM
+set smartcase
+
+
+"################################# SPECIAL CHARS ################################
 
 " SHOW ALL WHITESPACE CHARACTERS
 ""set list
