@@ -72,9 +72,9 @@ ALL="$(ask "> Do you want to install all dotfiles (bashrc, vimrc, inputrc, etc.)
 install   ".profile"        "source"    "$HOME/.bashrc"
 install   ".bash_profile"   "source"    "$HOME/.bashrc"
 install   ".bashrc"         "source"    "$DOTFILES_DIR/bashrc"
+install   ".bashrc"         "bind -f"   "$DOTFILES_DIR/inputrc"
 install   ".vimrc"          "source"    "$DOTFILES_DIR/vimrc"
 install   ".tmux.conf"      "source"    "$DOTFILES_DIR/tmux.conf"
-install   ".inputrc"        "\$include" "$DOTFILES_DIR/inputrc"
 
 echo "> Done installing dotfiles"
 
