@@ -16,7 +16,7 @@ function install {
   fi
 
   if [[ "$ADD" == "true" ]]; then
-    if [[ ! -f "$FILE" ]] || ! grep -Fxq "$COMMAND $DST" "$FILE"; then
+    if [[ ! -f "$FILE" ]] || ! grep -Fxq "$COMMAND $DST" $FILE; then
       # no file found at all or command not found in the file
       if [[ "$1" == ".vimrc" ]]; then
         # .vimrc specific commands (vimscript)
