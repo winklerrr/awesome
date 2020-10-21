@@ -22,6 +22,7 @@ function install {
       
       if [[ "$FILE" == ".vimrc" ]]; then
         # .vimrc specific commands (vimscript)
+        echo installing "$FILE"
         echo "try" >> "$FILE"
         echo "  $COMMAND $DST" >> "$FILE"
         echo "catch" >> "$FILE"
