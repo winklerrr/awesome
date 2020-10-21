@@ -18,11 +18,9 @@ function install {
   if [[ "$ADD" == "true" ]]; then
     if [[ ! -f "$FILE" ]] || ! grep -Fxq "$COMMAND $DST" "$FILE"; then
       # no file found at all or command not found in the file
-      echo -e "\n# load winklerrr/awesome dotfile" >> "$FILE"
-      
-      if [[ "$FILE" == ".vimrc" ]]; then
+      if [[ "$1" == ".vimrc" ]]; then
         # .vimrc specific commands (vimscript)
-        echo installing "$FILE"
+        echo -e '\n" load winklerrr/awesome dotfile' >> "$FILE"
         echo "try" >> "$FILE"
         echo "  $COMMAND $DST" >> "$FILE"
         echo "catch" >> "$FILE"
@@ -30,6 +28,7 @@ function install {
         echo "endtry" >> "$FILE"
       else
         # all the other commands (standard bash)
+        echo -e "\n# load winklerrr/awesome dotfile" >> "$FILE"
         echo "if [[ -f \"$DST\" ]]; then" >> "$FILE"
         echo "  $COMMAND $DST" >> "$FILE"
         echo "fi" >> "$FILE"
