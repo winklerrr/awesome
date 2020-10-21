@@ -110,14 +110,16 @@ alias v="vim"
 alias doch='sudo "$BASH" -c "$(history -p !!)"'
 
 # LIST DIRECTORY
-#   -A to show all except `.` and `..`
-#   -G auto color
+#   --almost-all to show all except `.` and `..`
+#   --color=always show colors
 #   -p to add `/` after directories
 #   -l for table
-#   -sS show file size and order accordingly
-alias ls="ls -ApG"  
+#   -s show file size
+#   -S order by file size
+#   -h make size human readable
+alias ls="ls --almost-all --color=always -p"  
 alias l="ls -l"  
-alias ll="l -sS"  
+alias ll="l -sSh"  
 
 # CHANGE DIR
 alias ~="cd ~"
