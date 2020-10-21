@@ -1,6 +1,8 @@
 #!/bin/bash
 
-##### FUNCTIONS #####
+set -e
+
+########## FUNCTIONS ##########
 
 function install {
   FILE="$HOME/$1"
@@ -15,9 +17,20 @@ function install {
 
   if [[ "$ADD" == "true" ]]; then
     if [[ ! -f "$FILE" ]] || ! grep -Fxq "$COMMAND $DST" "$FILE"; then
-      echo "if [[ -f \"$DST\" ]]; then" >> "$FILE"
-      echo "  $COMMAND $DST" >> "$FILE"
-      echo "fi" >> "$FILE"
+      # no file found at all or command not found in the file
+      if [[ "$FILE" == ".vimrc" ]]; then
+        # .vimrc specific commands (vimscript)
+        echo "try" >> "$FILE"
+        echo "  $COMMAND $DST" >> "$FILE"
+        echo "catch" >> "$FILE"
+          # don't do anything here
+        echo "endtry" >> "$FILE"
+      else
+        # all the other commands (standard bash)
+        echo "if [[ -f \"$DST\" ]]; then" >> "$FILE"
+        echo "  $COMMAND $DST" >> "$FILE"
+        echo "fi" >> "$FILE"
+      fi
       echo ">> Successfully added '$COMMAND $DST' to '$FILE'"
     else
       echo ">> '$COMMAND $DST' was already added to '$FILE'"
@@ -27,16 +40,17 @@ function install {
 
 function ask {
   while true; do
-    read -p "$1 [Y/n] " answer
+    read -p "$1 [Y/n/a] " answer
     case "$answer" in
       y|Y|"" ) echo "true" ; return 0;;
       n|N    ) echo "false"; return 1;;
+      a|A    ) exit 1;;
     esac
   done
 }
 
 
-##### MAIN #####
+########## MAIN ##########
 
 echo
 echo "### INSTALLING DOTFILES by winklerrr ###"
