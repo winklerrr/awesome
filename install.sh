@@ -45,9 +45,9 @@ function ask {
   while true; do
     read -p "$1 [Y/n/a] " answer
     case "$answer" in
-      y|Y|"" ) echo "true" ; return 0;;
-      n|N    ) echo "false"; return 1;;
-      a|A    ) exit 1;;
+      y|Y|"" ) echo "true" ; return 0;; # yes
+      n|N    ) echo "false"; return 1;; # no
+      a|A    ) exit 1;; # abort
     esac
   done
 }
