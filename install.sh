@@ -18,6 +18,8 @@ function install {
   if [[ "$ADD" == "true" ]]; then
     if [[ ! -f "$FILE" ]] || ! grep -Fxq "$COMMAND $DST" "$FILE"; then
       # no file found at all or command not found in the file
+      echo -e "\n# load winklerrr/awesome dotfile"
+      
       if [[ "$FILE" == ".vimrc" ]]; then
         # .vimrc specific commands (vimscript)
         echo "try" >> "$FILE"
@@ -31,9 +33,10 @@ function install {
         echo "  $COMMAND $DST" >> "$FILE"
         echo "fi" >> "$FILE"
       fi
+      
       echo ">> Successfully added '$COMMAND $DST' to '$FILE'"
     else
-      echo ">> '$COMMAND $DST' was already added to '$FILE'"
+      echo ">> '$COMMAND $DST' was already inside '$FILE'"
     fi
   fi
 }
