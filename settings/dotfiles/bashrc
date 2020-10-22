@@ -164,8 +164,8 @@ alias gbd="git branch -d"  # delete branch
 alias grm="git_remove_staged"  # remove given files or all from stage back to unstaged
 alias grma="git_remove_staged_all"  # remove given files or all from stage back to unstaged
 
-alias gr="git reset HEAD"  # remove all files from stage back to unstaged
-alias gres="git reset --soft HEAD~1"  # remove the last commit without removing the commited files from the stage 
+alias greset="git reset HEAD"  # remove all files from stage back to unstaged
+alias gresetlast="git reset --soft HEAD~1"  # remove the last commit without removing the commited files from the stage 
 
 alias ga="git add"
 alias ga.="git add ."  # add all changes in the current directory to the stage (also untracked)
@@ -178,8 +178,8 @@ alias gp="git pull"
 alias gpsh="git push"
 alias gpshu="git_push_set_upstream"
 
-alias greb="git rebase"  # rebase from origin
-alias grebi="git rebase -i"  # rebase locally to rename, reorder and change local commits
+alias gre="git rebase"  # rebase from origin
+alias grei="git rebase -i"  # rebase locally to rename, reorder and change local commits
 
 alias gca="gac"
 alias gcaa="gaac"  
