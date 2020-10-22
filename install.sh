@@ -18,17 +18,23 @@ function install {
   if [[ "$ADD" == "true" ]]; then
     if [[ ! -f "$FILE" ]] || ! grep -Fxq "  $COMMAND $DST" $FILE; then
       # files does not yet exist or command not found in the file
+
       if [[ "$1" == ".vimrc" ]]; then
         # .vimrc specific commands (vimscript)
-        echo -e '\n" load winklerrr/awesome dotfile' >> "$FILE"
+        echo -e '\n" installed by winklerrr/awesome' >> "$FILE"
         echo "try" >> "$FILE"
         echo "  $COMMAND $DST" >> "$FILE"
         echo "catch" >> "$FILE"
           # don't do anything here
         echo "endtry" >> "$FILE"
+      else if [[ "$1" == ".vimrc" ]]; then
+        # .tmux.conf specific commands
+        echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
+        echo "if-shell -b '[[ -f \"/home/swr/awesome/settings/dotfiles/tmux.conf\" ]]' \\" >> "$FILE"
+        echo "  source-file \"/home/swr/awesome/settings/dotfiles/tmux.conf\"" >> "$FILE"
       else
         # all the other commands (standard bash)
-        echo -e "\n# load winklerrr/awesome dotfile" >> "$FILE"
+        echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
         echo "if [[ -f \"$DST\" ]]; then" >> "$FILE"
         echo "  $COMMAND $DST" >> "$FILE"
         echo "fi" >> "$FILE"
