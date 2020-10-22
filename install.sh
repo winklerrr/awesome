@@ -115,5 +115,10 @@ if ask "> Do you want to set VSCode as your default git editor (also merge and d
   git config --global difftool.vscode.cmd 'code --wait --diff "$LOCAL" "$REMOTE"'
 fi
 
+if ask "> Do you want to set core.autocrlf=true and core.filemode=false (useful when working with repositories on WSL)" >/dev/null; then
+  git config --global core.autocrlf true
+  git config --global core.filemode false
+fi
+
 # reload .bashrc
 echo "> All done. Please restart bash in order to activate the new changes (or try: exec bash -l)."
