@@ -186,6 +186,8 @@ alias gname="git config user.name"
 alias gmail="git config user.email"
 alias ginfo="git_info"
 
+alias ghttps2ssh="bash $ROOT_DIR/tools/bash/github_https2ssh.sh"
+
 # COPY PASTE
 if [[ ! -r /proc/version ]]; then
   # on MAC
