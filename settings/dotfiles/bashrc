@@ -35,10 +35,8 @@ get_current_git_branch () {
 AUTO_COMPLETION_LINUX="/etc/profile.d/bash_completion.sh"
 AUTO_COMPLETION_MAC="/usr/local/etc/profile.d/bash_completion.sh"
 if [[ -r "$AUTO_COMPLETION_LINUX" ]]; then
-  echo "> Loading autocompletion for Linux"
   source "$AUTO_COMPLETION_LINUX"
 elif [[ -r "$AUTO_COMPLETION_MAC" ]]; then
-  echo "> Loading autocompletion for Mac"
   source "$AUTO_COMPLETION_MAC"
 else
   echo "> Unable to find 'bash_completion.sh'"
