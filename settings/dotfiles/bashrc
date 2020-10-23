@@ -206,8 +206,9 @@ alias reload="source '${THIS}' && echo '> Done loading ~ AWESOME BASHRC ~'"
 
 alias bashrc="vim '${THIS}' && reload"
 alias vimrc="vim '${THIS_DIR}/vimrc'"
-alias tmuxrc="vim '${THIS_DIR}/tmux.conf'"
 alias inputrc="vim '${THIS_DIR}/inputrc'"
+alias tmuxrc="vim '${THIS_DIR}/tmux.conf'"
+alias tmuxconf="tmuxrc"
 
 
 ############################ BASIC FUNCTIONS ###################################
