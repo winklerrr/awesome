@@ -35,8 +35,10 @@ get_current_git_branch () {
 AUTO_COMPLETION_LINUX="/etc/profile.d/bash_completion.sh"
 AUTO_COMPLETION_MAC="/usr/local/etc/profile.d/bash_completion.sh"
 if [[ -r "$AUTO_COMPLETION_LINUX" ]]; then
+  echo "> Loading autocompletion for Linux"
   source "$AUTO_COMPLETION_LINUX"
 elif [[ -r "$AUTO_COMPLETION_MAC" ]]; then
+  echo "> Loading autocompletion for Mac"
   source "$AUTO_COMPLETION_MAC"
 else
   echo "> Unable to find 'bash_completion.sh'"
@@ -45,14 +47,6 @@ fi
 
 
 #################################### SETTINGS ##################################
-
-# SHOW AND CYCLE THROUGH COMMAND POSSIBILITIES ON TAB
-bind "TAB:menu-complete"
-bind '"\e[Z":menu-complete-backward'  # bind SHIFT+TAB
-
-bind "set show-all-if-ambiguous on"
-bind "set completion-ignore-case on"
-bind "set menu-complete-display-prefix on"
 
 # SUPPRESS THE MACOS WARNING FOR NOT USING ZSH
 export BASH_SILENCE_DEPRECATION_WARNING=1

@@ -9,12 +9,14 @@
 ##                                                                            ##
 ################################################################################
 
-
-##################################### VIM ######################################
 # FOR MORE INFORMATION CHECK:
 # https://wiki.archlinux.org/index.php/Readline
+# https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html
 
-# TURN ON VIM (E.G. FOR READLINE)
+
+##################################### VIM ######################################
+
+# TURN ON VIM (I.E. FOR READLINE)
 set editing-mode vi
 
 # SHOW THE VIM MODE IN THE PROMPT (COMMAND OR INSERT)
@@ -34,17 +36,89 @@ set show-mode-in-prompt on
 set vi-ins-mode-string "\1\e[0;33m\2(ins)\1\e[5 q\2"
 set vi-cmd-mode-string "\1\e[0;33m\2(cmd)\1\e[2 q\2"
 
-# WRAPPING BEHAVIOUR OF LONG COMMADS
-set horizontal-scroll-mode off
 
 ################################### SETTINGS ##################################
 
+# WRAPPING BEHAVIOUR OF LONG COMMADS
+set horizontal-scroll-mode off
+
+# COMPLETED DIRECTORY NAMES HAVE A SLASH APPENDED
+set mark-directories on
+
+# MATCH FILES WHOSE NAMES BEGIN WITH A DOT WHEN PERFORMING FILENAME COMPLETION
+set match-hidden-files on
+
+# ASK BEFORE DISPLAYING >50 ITEMS
+set completion-query-items 50
+
 # LET THE AUTO COMPLETION IGNORE CASES
 set completion-ignore-case on
+
+# LET THE AUTO COMPLETION TREATS HYPHENS AND UNDERSCORES AS EQUIVALENT
+set completion-map-case on
 
 # JUST SHOW THE COMPLETIONS INSTEAD OF RINGING THAT ANNOYING BELL
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
-# TURN OF THE ANNOYING BEEP
+# TURN OF THE ANNOYING BEEP: none, visible or audible
 set bell-style none
+
+# DISPLAYS THE LIST OF POSSIBLE COMPLETIONS BEFORE CYCLING THROUGH THE LIST
+set menu-complete-display-prefix on
+
+# DISPLAYS THE COMMON PREFIX OF POSSIBLE COMPLETIONS USING DIFFERENT COLORS
+set colored-completion-prefix on
+
+# DISPLAYS POSSIBLE COMPLETIONS USING DIFFERENT COLORS TO INDICATE THEIR FILE TYPE
+set colored-stats on
+
+# DISPLAYS A CHARACTER DENOTING A FILE’S TYPE WHEN LISTING POSSIBLE COMPLETIONS
+set visible-stats on
+
+# ENABLE 8BIT INPUT
+set meta-flag on 
+set input-meta on
+
+# TURNS OFF 8TH BIT STRIPPING
+set convert-meta off
+
+# KEEP THE 8TH BIT FOR DISPLAY
+set output-meta on
+
+
+################################# KEY MAPPINGS ################################
+
+# AVAILABLE KEYNAMES:
+# DEL, ESC, ESCAPE, LFD, NEWLINE, RET, RETURN, RUBOUT, SPACE, SPC, and TAB
+
+# SHOW AND CYCLE THROUGH COMMAND POSSIBILITIES ON TAB AND SHIFT+TAB
+TAB: menu-complete
+"\e[Z": menu-complete-backward
+
+# BASIC COMMAND NAVIGATION 
+# PRESS CTRL-V AND THEN THE KEY FOR WHICH YOU WANT TO SEY THE CHARACTER SEQUENCE
+
+## HOME
+"\e[1~": beginning-of-line
+
+## INSERT
+"\e[2": quoted-insert
+
+## DELETE
+"\e[3": delete-char
+
+## END
+"\e[4~": end-of-line
+
+## PAGE UP
+"\e[5": beginning-of-history
+
+## PAGE DOWN
+"\e[6": end-of-history
+
+## ARROW UP
+"\e[A": history-search-backward
+
+## ARROW DOWN
+"\e[B": history-search-forward
