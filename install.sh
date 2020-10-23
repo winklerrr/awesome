@@ -30,8 +30,8 @@ function install {
       else if [[ "$1" == ".vimrc" ]]; then
         # .tmux.conf specific commands
         echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
-        echo "if-shell -b '[[ -f \"/home/swr/awesome/settings/dotfiles/tmux.conf\" ]]' \\" >> "$FILE"
-        echo "  source-file \"/home/swr/awesome/settings/dotfiles/tmux.conf\"" >> "$FILE"
+        echo "'test -f \"/home/swr/awesome/settings/dotfiles/tmux.conf\"' \\" >> "$FILE"
+        echo "  'source-file \"/home/swr/awesome/settings/dotfiles/tmux.conf\"'" >> "$FILE"
       else
         # all the other commands (standard bash)
         echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
