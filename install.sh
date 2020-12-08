@@ -27,11 +27,11 @@ function install {
         echo "catch" >> "$FILE"
           # don't do anything here
         echo "endtry" >> "$FILE"
-      else if [[ "$1" == ".vimrc" ]]; then
+      else if [[ "$1" == ".tmux" ]]; then
         # .tmux.conf specific commands
         echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
-        echo "'test -f \"/home/swr/awesome/settings/dotfiles/tmux.conf\"' \\" >> "$FILE"
-        echo "  'source-file \"/home/swr/awesome/settings/dotfiles/tmux.conf\"'" >> "$FILE"
+        echo "'test -f \"$DST\"' \\" >> "$FILE"
+        echo "  '$COMMAND $DST'" >> "$FILE"
       else
         # all the other commands (standard bash)
         echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
@@ -74,13 +74,13 @@ echo "> Found the dotfiles in '$DOTFILES_DIR'"
 # install all scripts
 ALL="$(ask "> Do you want to install all dotfiles (bashrc, vimrc, inputrc, etc.)?")"
 
-#         src file          command     dst path
-install   ".profile"        "source"    "$HOME/.bashrc"
-install   ".bash_profile"   "source"    "$HOME/.bashrc"
-install   ".bashrc"         "source"    "$DOTFILES_DIR/bashrc"
-install   ".bashrc"         "bind -f"   "$DOTFILES_DIR/inputrc"
-install   ".vimrc"          "source"    "$DOTFILES_DIR/vimrc"
-install   ".tmux.conf"      "source"    "$DOTFILES_DIR/tmux.conf"
+#         src file          command         dst path
+install   ".profile"        "source"        "$HOME/.bashrc"
+install   ".bash_profile"   "source"        "$HOME/.bashrc"
+install   ".bashrc"         "source"        "$DOTFILES_DIR/bashrc"
+install   ".bashrc"         "bind -f"       "$DOTFILES_DIR/inputrc"
+install   ".vimrc"          "source"        "$DOTFILES_DIR/vimrc"
+install   ".tmux.conf"      "source-file"   "$DOTFILES_DIR/tmux.conf"
 
 echo "> Done installing dotfiles"
 
