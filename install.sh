@@ -141,9 +141,11 @@ if [ "$ANSWER" = true ]; then
   echo "> Done setting default git editor"
 fi
 
-ask "> Do you want to set 'core.autocrlf=true' and 'core.filemode=false'? This is useful when working with repositories on WSL! (git needed)" ANSWER
+ask "> Do you want to set 'core.autocrlf=false' and 'core.filemode=false'? This is useful when working with repositories on WSL! (git needed)" ANSWER
 if [ "$ANSWER" = true ]; then
-  git config --global core.autocrlf true
+  # autocrlf: don't automatically convert lf to crfl when checking out a repo in Windows
+  git config --global core.autocrlf false
+  git config --global core.safecrlf false
   git config --global core.filemode false
 
   echo "> Done setting default git line endings"
