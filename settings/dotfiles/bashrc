@@ -99,8 +99,13 @@ unalias -a
 alias c="clear"
 alias cd="my_cd"
 
-alias md="mkdir"
-alias mkdir="my_mkdir"
+alias cp="cp -iv"
+alias mv="mv -iv"
+
+alias md="mkdir -p"
+alias mkdir="my_mkdir -pv"
+
+alias rd="rmdir"
 
 alias v="vim"
 alias doch='sudo "$BASH" -c "$(history -p !!)"'
@@ -119,13 +124,28 @@ alias ll="l -sSh"
 
 # CHANGE DIR
 alias ~="cd ~"
-alias -- -="cd -"  # use -- to indicate end of options
+
+alias -- -="cd -"  # use -- to indicate end of options, to set alias for -
+alias 1="cd -"
+alias 2="cd -2"
+alias 3="cd -3"
+alias 4="cd -4"
+alias 5="cd -5"
+alias 6="cd -6"
+alias 7="cd -7"
+alias 8="cd -8"
+alias 9="cd -9"
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+
+alias .3="...."
+alias .4="....."
+alias .5="......"
+alias .6="......."
 
 alias awesome="cd '${ROOT_DIR}'"
 
@@ -176,7 +196,9 @@ alias grei="git rebase -i"  # rebase locally to rename, reorder and change local
 alias gca="gac"
 alias gcaa="gaac"  
 alias gac="git_add_commit"  
+alias gac!="git_add_commit_amend"  
 alias gaac="git_add_all_commit"  
+alias gaac!="git_add_all_commit_amend"  
 
 alias gurl="git config remote.origin.url"
 alias gbranch="git branch | grep '*' | cut -c 3-"
