@@ -76,7 +76,7 @@ echo
 
 # get the current absolute directory
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE}")" &>/dev/null && pwd)"
-DOTFILES_DIR="$THIS_DIR/settings/dotfiles"
+DOTFILES_DIR="$THIS_DIR/dotfiles"
 echo "> Found the dotfiles in '$DOTFILES_DIR'"
 
 # install all scripts
