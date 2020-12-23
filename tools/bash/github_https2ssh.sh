@@ -26,7 +26,9 @@ echo ">> old: '$REPO_URL'"
 echo ">> new: '$NEW_URL'"
 echo ""
 
-CHANGE_CMD="git remote set-url origin $NEW_URL"
-`$CHANGE_CMD`
-
-echo "> Success"
+git remote set-url origin $NEW_URL
+if [ $? -eq 0 ]; then
+  echo "> Success"
+elif
+  echo "> Failed"
+fi
