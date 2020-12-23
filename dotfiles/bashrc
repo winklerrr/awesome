@@ -131,6 +131,10 @@ alias mkdir="my_mkdir -pv"
 
 alias rd="rmdir"
 
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+
 alias v="vim"
 alias doch='sudo "$BASH" -c "$(history -p !!)"'
 
