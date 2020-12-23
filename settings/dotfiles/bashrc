@@ -170,8 +170,11 @@ alias gl="git log"
 alias gm="git merge"
 
 alias gb="git branch"  
-alias gbc="git checkout -b"  # create a new branch
+alias gbn="gcb"  # create a new branch
 alias gbd="git branch -d"  # delete branch
+
+alias gc="git checkout"
+alias gcb="git checkout -b"
 
 alias grm="git_remove_staged"  # remove given files or all from stage back to unstaged
 alias grma="git_remove_staged_all"  # remove given files or all from stage back to unstaged
