@@ -1,7 +1,10 @@
+#!/bin/bash
+#
+# borrowed from:
 # acd_func 1.0.5, 10-nov-2004
 # petar marinov, http:/geocities.com/h2428, this is public domain
 
-cd_func ()
+improved_cd ()
 {
   local x2 the_new_dir adir index
   local -i cnt

@@ -15,8 +15,7 @@
 # PATH
 THIS="$BASH_SOURCE"
 THIS_DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
-PARENT_DIR="$(dirname "${THIS_DIR}")"
-ROOT_DIR="$(dirname "${PARENT_DIR}")"
+ROOT_DIR="$(dirname "${THIS_DIR}")"
 
 
 ############################### INTERNAL FUNCTIONS #############################
@@ -32,16 +31,42 @@ get_current_git_branch () {
 ##################################### PLUGINS ##################################
 
 # AUTO COMPLETION
-AUTO_COMPLETION_LINUX="/etc/profile.d/bash_completion.sh"
-AUTO_COMPLETION_MAC="/usr/local/etc/profile.d/bash_completion.sh"
+AUTO_COMPLETION="bash_completion.sh"
+AUTO_COMPLETION_LINUX="/etc/profile.d/${AUTO_COMPLETION}"
+AUTO_COMPLETION_MAC="/usr/local/etc/profile.d/${AUTO_COMPLETION}"
+
+# -r: if file exists and is readable
 if [[ -r "$AUTO_COMPLETION_LINUX" ]]; then
   source "$AUTO_COMPLETION_LINUX"
 elif [[ -r "$AUTO_COMPLETION_MAC" ]]; then
   source "$AUTO_COMPLETION_MAC"
 else
-  echo "> Unable to find 'bash_completion.sh'"
+  echo "> Unable to find '${AUTO_COMPLETION}'"
   echo "> Maybe you need to install it: 'sudo apt update && sudo apt install bash-completion -y'"
 fi
+
+
+# CD WITH HISTORY
+IMPROVED_CD="extras/improved_cd.sh"
+IMPROVED_CD_FULL="${THIS_DIR}/${IMPROVED_CD}"
+
+if [[ -r "$IMPROVED_CD_FULL" ]]; then
+  source "$IMPROVED_CD_FULL"
+else
+  echo "> Unable to find '${IMPROVED_CD}'"
+fi
+
+
+# GIT HTTPS2SSH
+GIT_HTTPS2SSH="extras/github_https2ssh.sh"
+GIT_HTTPS2SSH_FULL="${THIS_DIR}/${GIT_HTTPS2SSH}"
+
+if [[ -r "$GIT_HTTPS2SSH_FULL" ]]; then
+  source "$GIT_HTTPS2SSH_FULL"
+else
+  echo "> Unable to find '${GIT_HTTPS2SSH}'"
+fi
+
 
 
 #################################### SETTINGS ##################################
@@ -97,12 +122,11 @@ unalias -a
 
 # GENERAL
 alias c="clear"
-alias cd="my_cd"
 
 alias cp="cp -iv"
 alias mv="mv -iv"
 
-alias md="mkdir -p"
+alias md="my_mkdir -p"
 alias mkdir="my_mkdir -pv"
 
 alias rd="rmdir"
@@ -118,23 +142,28 @@ alias doch='sudo "$BASH" -c "$(history -p !!)"'
 #   -s show file size
 #   -S order by file size
 #   -h make size human readable
-alias ls="ls --almost-all --color=always -p"  
-alias l="ls -l"  
-alias ll="l -sSh"  
+alias l="/bin/ls --color=always -p"  
+alias ll="l -l"  
+alias la="ll --almost-all"
+alias ls="la -sSh"  
 
 # CHANGE DIR
+alias cd="improved_cd"
 alias ~="cd ~"
 
-alias -- -="cd -"  # use -- to indicate end of options, to set alias for -
-alias 1="cd -"
-alias 2="cd -2"
-alias 3="cd -3"
-alias 4="cd -4"
-alias 5="cd -5"
-alias 6="cd -6"
-alias 7="cd -7"
-alias 8="cd -8"
-alias 9="cd -9"
+# use -- to indicate end of options, to set alias for -
+alias -- -="cd -"  
+alias -- --="cd --"  
+alias -- -1="cd -"
+alias -- -2="cd -2"
+alias -- -3="cd -3"
+alias -- -4="cd -4"
+alias -- -5="cd -5"
+alias -- -6="cd -6"
+alias -- -7="cd -7"
+alias -- -8="cd -8"
+alias -- -9="cd -9"
+alias -- -0="cd -10"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -149,10 +178,10 @@ alias .6="......."
 
 alias awesome="cd '${ROOT_DIR}'"
 
-alias settings="cd '${PARENT_DIR}'"
 alias configs="cd '${THIS_DIR}'"
 alias dotfiles="cd '${THIS_DIR}'"
 
+alias settings="cd '${ROOT_DIR}/settings'"
 alias cheatsheets="cd '${ROOT_DIR}/wiki/cheatsheets'"
 alias notes="cd '${ROOT_DIR}/wiki/notes'"
 
@@ -161,20 +190,21 @@ alias g="git"
 
 alias gs="git status"
 
-alias gd="gdiff"
-alias gdiff="git diff Head"  # show diff for all (given) files
-alias gds="gdiffs"  # show diff for staged files
-alias gdiffs="git diff --staged"  # show diff for all (given) files
+alias gd="git diff"               # show diff of all (given) files (unstaged only)
+alias gds="git diff --staged"     # show diff of all (given) files (staged only)
+alias gdh="git diff HEAD"         # show diff of all (given) files (staged + unstaged)
+alias gdc="git diff --check"      # check diff for merge conflicts
+alias gdn="git diff --name-only"  # show only names of changed files
 
 alias gl="git log"
 alias gm="git merge"
 
 alias gb="git branch"  
-alias gbn="gcb"  # create a new branch
+alias gbn="gcob"  # create a new branch
 alias gbd="git branch -d"  # delete branch
 
-alias gc="git checkout"
-alias gcb="git checkout -b"
+alias gco="git checkout"
+alias gcob="git checkout -b"
 
 alias grm="git_remove_staged"  # remove given files or all from stage back to unstaged
 alias grma="git_remove_staged_all"  # remove given files or all from stage back to unstaged
@@ -196,6 +226,7 @@ alias gpshu="git_push_set_upstream"
 alias gre="git rebase"  # rebase from origin
 alias grei="git rebase -i"  # rebase locally to rename, reorder and change local commits
 
+alias gc="git_commit"
 alias gca="gac"
 alias gcaa="gaac"  
 alias gac="git_add_commit"  
@@ -209,7 +240,7 @@ alias gname="git config user.name"
 alias gmail="git config user.email"
 alias ginfo="git_info"
 
-alias ghttps2ssh="bash $ROOT_DIR/tools/bash/github_https2ssh.sh"
+alias ghttps2ssh="git_https2ssh"
 
 # COPY PASTE
 if [[ ! -r /proc/version ]]; then
@@ -237,10 +268,6 @@ alias tmuxconf="tmuxrc"
 
 
 ############################ BASIC FUNCTIONS ###################################
-
-my_cd () {
-  builtin cd "$@" && l
-}
 
 my_mkdir () {
   if [ $# -eq 1 ]; then
