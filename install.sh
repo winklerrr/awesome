@@ -34,7 +34,7 @@ install() {
       elif [[ "$DST" == ".tmux.conf" ]]; then
         # .tmux.conf specific commands
         echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
-        echo "'test -f \"$SRC\"' \\" >> "$FILE"
+        echo "if-shell -b 'test -f $SRC' \\" >> "$FILE"
         echo "  '$COMMAND'" >> "$FILE"
       else
         # all the other commands (standard bash)
