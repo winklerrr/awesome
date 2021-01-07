@@ -75,7 +75,7 @@ fi
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # USE XTREM AS DEFAULT
-export TERM=xterm
+export TERM=xterm-256color
 
 # USE VIM AS DEFAULT EDITOR/VISUAL (FOR GIT, ETC.)
 export VISUAL=/usr/bin/vim
