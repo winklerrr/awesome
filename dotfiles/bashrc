@@ -120,6 +120,7 @@ PS1=" \[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[00m\]:\[\e[1;34m\]\w \[\e[1;35m\]\$(ge
 # UNALIAS EVERYTHING BEFORE ALIASING AGAIN
 unalias -a
 
+
 # GENERAL
 alias c="clear"
 
@@ -128,15 +129,19 @@ alias mv="mv -iv"
 
 alias md="my_mkdir -p"
 alias mkdir="my_mkdir -pv"
-
 alias rd="rmdir"
 
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
+alias upd="sudo apt update"
+alias upg="sudo apt upgrade"
+alias updg="upd && upg"
+
 alias v="vim"
 alias doch='sudo "$BASH" -c "$(history -p !!)"'
+
 
 # LIST DIRECTORY
 #   --almost-all to show all except `.` and `..`
@@ -150,6 +155,7 @@ alias l="/bin/ls --color=always -p"
 alias ll="l -l"  
 alias la="ll --almost-all"
 alias ls="la -sSh"  
+
 
 # CHANGE DIR
 alias cd="improved_cd"
@@ -188,6 +194,7 @@ alias dotfiles="cd '${THIS_DIR}'"
 alias settings="cd '${ROOT_DIR}/settings'"
 alias cheatsheets="cd '${ROOT_DIR}/wiki/cheatsheets'"
 alias notes="cd '${ROOT_DIR}/wiki/notes'"
+
 
 # GIT
 alias g="git"
@@ -246,6 +253,7 @@ alias ginfo="git_info"
 
 alias ghttps2ssh="git_https2ssh"
 
+
 # COPY PASTE
 if [[ ! -r /proc/version ]]; then
   # on MAC
@@ -260,6 +268,7 @@ else
   alias copy="xclip -sel clip"
   alias paste="xclip -sel clip -o"
 fi
+
 
 # CONFIGS
 alias reload="source '${THIS}' && echo '> Done loading ~ AWESOME BASHRC ~'"
