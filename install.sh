@@ -42,7 +42,7 @@ install() {
         echo "if [ -f \"$SRC\" ]; then" >> "$FILE"
         echo "  $COMMAND" >> "$FILE"
         echo "else" >> "$FILE"
-        echo "  echo \"'$DST': '$SRC' does not exist!\"" >> "$FILE"
+        echo "  echo \"$DST: unable to load '$SRC'!\"" >> "$FILE"
         echo "fi" >> "$FILE"
       fi
       
