@@ -152,9 +152,9 @@ alias doch='sudo "$BASH" -c "$(history -p !!)"'
 #   -S order by file size
 #   -h make size human readable
 alias l="/bin/ls --color=always -p"  
+alias la="l --almost-all"
 alias ll="l -l"  
-alias la="ll --almost-all"
-alias ls="la -sSh"  
+alias ls="ll -asSh"  
 
 
 # CHANGE DIR
@@ -186,6 +186,12 @@ alias .4="....."
 alias .5="......"
 alias .6="......."
 
+# quick way to set default start path
+alias current_dir="pwd | sed -e 's/ /\\ /'"
+alias save='echo `current_dir` > ~/.saved_dir'
+alias load='builtin cd `cat ~/.saved_dir 2>/dev/null`'
+
+# special directories for these config files
 alias awesome="cd '${ROOT_DIR}'"
 
 alias configs="cd '${THIS_DIR}'"
@@ -398,4 +404,7 @@ android-sim () {
 }
 
 
+###############################################################################
 
+# load saved dir on start/reload of bash
+load
