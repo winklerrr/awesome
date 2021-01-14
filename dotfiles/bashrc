@@ -47,7 +47,7 @@ fi
 
 
 # CD WITH HISTORY
-IMPROVED_CD="extras/improved_cd.sh"
+IMPROVED_CD="utils/improved_cd.sh"
 IMPROVED_CD_FULL="${THIS_DIR}/${IMPROVED_CD}"
 
 if [[ -r "$IMPROVED_CD_FULL" ]]; then
@@ -58,7 +58,7 @@ fi
 
 
 # GIT HTTPS2SSH
-GIT_HTTPS2SSH="extras/github_https2ssh.sh"
+GIT_HTTPS2SSH="utils/github_https2ssh.sh"
 GIT_HTTPS2SSH_FULL="${THIS_DIR}/${GIT_HTTPS2SSH}"
 
 if [[ -r "$GIT_HTTPS2SSH_FULL" ]]; then
@@ -415,6 +415,6 @@ then
 
   if command -v tmux &> /dev/null; then 
     # tmux is installed
-    exec tmux
+    tmux
   fi
 fi
