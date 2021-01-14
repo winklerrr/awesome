@@ -408,13 +408,15 @@ android-sim () {
 
 # load saved dir on start/reload of bash
 
-if [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]
+if [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] \
+   && [[ ! "$TERM_PROGRAM" =~ vscode ]] \
+   && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]
 then
-  # in interactive console and not in tmux itself
+  # only load while in interactive console, not in vscode and not in tmux itself
   load
 
   if command -v tmux &> /dev/null; then 
-    # tmux is installed
-    tmux
+    # run tmux if installed
+    exec tmux
   fi
 fi
