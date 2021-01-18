@@ -407,12 +407,12 @@ android-sim () {
 ############################ AUTO START FUNCTIONS #############################
 
 if [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] \
-   && [[ ! "$TERM_PROGRAM" =~ vscode ]] \
-   && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]
-then
+  && [[ ! "$TERM_PROGRAM" =~ vscode ]] \
+  && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   # only load while in interactive console but not in vscode or not in tmux itself
 
-  if [[ "$(pwd)" == "/mnt/c/windows/system32" ]]; then
+  CURRENT_DIR=$(pwd)
+  if [[ "${CURRENT_DIR,,}" == "/mnt/c/windows/system32" ]]; then
     # only load path if we start in default WSL system32 folder 
     # so "open in linux shell" still works
     load
