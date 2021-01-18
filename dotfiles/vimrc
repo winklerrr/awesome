@@ -44,6 +44,9 @@ set softtabstop=2
 " ACTIVATE AUTOINDENT
 set autoindent
 
+" ENABLE MOUSE SCROLLING IN XTERM
+set mouse=a
+
 
 "#################################### CURSOR ####################################
 
