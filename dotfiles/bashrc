@@ -201,6 +201,11 @@ alias settings="cd '${ROOT_DIR}/settings'"
 alias cheatsheets="cd '${ROOT_DIR}/wiki/cheatsheets'"
 alias notes="cd '${ROOT_DIR}/wiki/notes'"
 
+# DOCKER
+alias d="docker"
+alias dc="docker container ls"
+alias di="docker image ls"
+
 
 # GIT
 alias g="git"
