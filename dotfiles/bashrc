@@ -186,12 +186,17 @@ alias .4="....."
 alias .5="......"
 alias .6="......."
 
+# SAVE AND LOAD DIR
 # quick way to set default start path, use '' to set alias literrally 
 alias current_dir="pwd | sed -e 's/ /\\ /'"
-alias save='echo $(current_dir) > ~/.saved_dir && echo "saved current dir, use \"load\" to cd to it"'
-alias load='builtin cd $(cat ~/.saved_dir 2>/dev/null)'
+alias save_dir='echo $(current_dir) > ~/.saved_dir && echo "saved current dir, use \"load\" to cd to it"'
+alias load_dir='builtin cd $(cat ~/.saved_dir 2>/dev/null)'
 
-# special directories for these config files
+alias sd="save_dir"
+alias ld="load_dir"
+
+# SPECIAL DIRS
+# special directories used for these config files
 alias awesome="cd '${ROOT_DIR}'"
 
 alias configs="cd '${THIS_DIR}'"
