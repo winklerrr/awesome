@@ -5,50 +5,50 @@ set -e
 ########## FUNCTIONS ##########
 
 install() {
-  DST="$1"
-  FILE="$HOME/$1"
-  COMMAND="$2 $3"
-  SRC="$3"
+  local dst="$1"
+  local file="$HOME/$1"
+  local cmd="$2 $3"
+  local src="$3"
 
-  if [ "$INSTALL_ALL" = true ]; then
-    ADD="true"
+  if [ "$install_all" = true ]; then
+    add="true"
   else
-    ask "> Add '$COMMAND' to '$FILE'?" ADD
+    ask "> Add '$cmd' to '$file'?" add
   fi
 
-  if [ "$ADD" = true ]; then
+  if [ "$add" = true ]; then
     # grep:
     # -F = interpret string as literal, not as regex
     # -q = quiet 
-    if [[ ! -f "$FILE" ]] || ! grep -Fq "$COMMAND" $FILE; then
-      # file does not yet exist or command not found in the file
+    if [[ ! -f "$file" ]] || ! grep -Fq "$cmd" $file; then
+      # file does not yet exist or cmd not found in the file
 
-      if [[ "$DST" == ".vimrc" ]]; then
-        # .vimrc specific commands (vimscript)
-        echo -e '\n" installed by winklerrr/awesome' >> "$FILE"
-        echo "try" >> "$FILE"
-        echo "  $COMMAND" >> "$FILE"
-        echo "catch" >> "$FILE"
-          # don't do anything here
-        echo "endtry" >> "$FILE"
-      elif [[ "$DST" == ".tmux.conf" ]]; then
-        # .tmux.conf specific commands
-        echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
-        echo "if-shell -b 'test -f $SRC' \\" >> "$FILE"
-        echo "  '$COMMAND'" >> "$FILE"
+      if [[ "$dst" == ".vimrc" ]]; then
+        # .vimrc specific cmd (vimscript)
+        echo -e '\n" installed by winklerrr/awesome' >> "$file"
+        echo "try" >> "$file"
+        echo "  $cmd" >> "$file"
+        echo "catch" >> "$file"
+        # don't do anything in the catch case
+        echo "endtry" >> "$file"
+      elif [[ "$dst" == ".tmux.conf" ]]; then
+        # .tmux.conf specific cmd
+        echo -e "\n# installed by winklerrr/awesome" >> "$file"
+        echo "if-shell -b 'test -f $src' \\" >> "$file"
+        echo "  '$cmd'" >> "$file"
       else
-        # all the other commands (standard bash)
-        echo -e "\n# installed by winklerrr/awesome" >> "$FILE"
-        echo "if [ -f \"$SRC\" ]; then" >> "$FILE"
-        echo "  $COMMAND" >> "$FILE"
-        echo "else" >> "$FILE"
-        echo "  echo \"$DST: unable to load '$SRC'!\"" >> "$FILE"
-        echo "fi" >> "$FILE"
+        # all the other cmd (standard bash)
+        echo -e "\n# installed by winklerrr/awesome" >> "$file"
+        echo "if [ -f \"$src\" ]; then" >> "$file"
+        echo "  $cmd" >> "$file"
+        echo "else" >> "$file"
+        echo "  echo \"$dst: unable to load '$src'!\"" >> "$file"
+        echo "fi" >> "$file"
       fi
       
-      echo ">> Successfully added '$COMMAND' to '$FILE'"
+      echo ">> Successfully added '$cmd' to '$file'"
     else
-      echo ">> Did not add '$COMMAND' to '$FILE' (already inside)"
+      echo ">> Did not add '$cmd' to '$file' (already inside)"
     fi
   fi
 }
@@ -75,29 +75,30 @@ echo "### INSTALLING DOTFILES by winklerrr ###"
 echo
 
 # get the current absolute directory
-THIS_DIR="$(cd "$(dirname "${BASH_SOURCE}")" &>/dev/null && pwd)"
-DOTFILES_DIR="$THIS_DIR/dotfiles"
-echo "> Found the dotfiles in '$DOTFILES_DIR'"
+this_dir="$(cd "$(dirname "${BASH_SOURCE}")" &>/dev/null && pwd)"
+dotfiles_dir="$this_dir/dotfiles"
+echo "> Found the dotfiles in '$dotfiles_dir'"
 
 # install all scripts
-ask "> Do you want to install all dotfiles at once (bashrc, vimrc, inputrc, etc.)?" INSTALL_ALL
+declare install_all
+ask "> Do you want to install all dotfiles at once (bashrc, vimrc, inputrc, etc.)?" install_all
 
 #         dst file          command         src file
 install   ".profile"        "source"        "$HOME/.bashrc"
 install   ".bash_profile"   "source"        "$HOME/.bashrc"
-install   ".bashrc"         "source"        "$DOTFILES_DIR/bashrc"
-install   ".bashrc"         "bind -f"       "$DOTFILES_DIR/inputrc"
-install   ".vimrc"          "source"        "$DOTFILES_DIR/vimrc"
-install   ".tmux.conf"      "source-file"   "$DOTFILES_DIR/tmux.conf"
+install   ".bashrc"         "source"        "$dotfiles_dir/bashrc"
+install   ".bashrc"         "bind -f"       "$dotfiles_dir/inputrc"
+install   ".vimrc"          "source"        "$dotfiles_dir/vimrc"
+install   ".tmux.conf"      "source-file"   "$dotfiles_dir/tmux.conf"
 
 echo "> Done installing dotfiles"
 
 # install tools
-TOOLS="git vim tmux tig xclip bash-completion"
-ask "> Do you want to install all necessary/recommended tools: $TOOLS? (sudo needed)" ANSWER
+tools="git vim tmux tig xclip bash-completion"
+ask "> Do you want to install all necessary/recommended tools: $tools? (sudo needed)" ANSWER
 if [ "$ANSWER" = true ]; then
   sudo apt update
-  sudo apt install -y $TOOLS
+  sudo apt install -y $tools
   echo "> Done installing tools"
 fi
 
