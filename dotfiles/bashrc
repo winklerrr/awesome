@@ -189,7 +189,7 @@ alias .6="......."
 # SAVE AND LOAD DIR
 # quick way to set default start path, use '' to set alias literrally 
 alias current_dir="pwd | sed -e 's/ /\\ /'"
-alias save_dir='echo $(current_dir) > ~/.saved_dir && echo "saved current dir, use \"load\" to cd to it"'
+alias save_dir='echo $(current_dir) > ~/.saved_dir && echo "> current dir successfully saved! use \"load_dir\" (or \"ld\") to cd to it"'
 alias load_dir='builtin cd $(cat ~/.saved_dir 2>/dev/null)'
 
 alias sd="save_dir"
@@ -424,7 +424,7 @@ if [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] \
   if [[ "${PWD,,}" == "/mnt/c/windows/system32" ]]; then
     # only load path if we start in default WSL system32 folder 
     # so "open in linux shell" still works
-    load
+    load_dir
   fi
 
   if command -v tmux &> /dev/null; then 
