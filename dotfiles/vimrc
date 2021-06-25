@@ -16,7 +16,7 @@ set nocompatible
 "#################################### STYLING ###################################
 
 " DEFAULT COLORSCHEME
-colo peachpuff
+colo industry
 
 " SYNTAX HIGHLIGHTING
 syntax on
