@@ -16,12 +16,16 @@
 - `<PRE>d`, `tmux detach` (`:detach`) - detach from the current session
 - `<PRE>s`, `tmux ls` (`:ls`) - list all sessions
 - `<PRE>$`, `tmux rename-session [-t name] name` - rename session
-- `<PRE>(`, `<PRE>)` - switch to the next/previous session
+- `<PRE>(` - switch to the previous session
+- `<PRE>)` - switch to the next session
 
 ## Window management
 
 - `<PRE>c` - create new window
+- `<PRE>,` - rename current window
 - `<PRE>&` - kill current window
+- `<PRE>w` - list windows
+- `<PRE>f` - find window
 - `<PRE>p` - switch to previous window
 - `<PRE>n` - switch to next window
 - `<PRE>l` - switch to last window
@@ -39,11 +43,14 @@ Switching panes:
 - `<PRE>q` - show pane numbers
 - `<PRE>q0..9` -  switch to pane
 - `<PRE>;` - switch to last active pane
+- `<PRE>{` - move the current pane left
+- `<PRE>}` - move the current pane right
 
 Other stuff:
 
 - `<PRE>x` - kill current pane
 - `<PRE>!` - convert pane into window
+- `:join-pane -t name` - join pane into window
 - `<PRE>z` - toggle pane zoom
 
 Resizing the current pane:
