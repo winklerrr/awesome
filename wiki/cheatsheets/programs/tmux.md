@@ -33,27 +33,28 @@
 
 ## Pane management
 
-Splitting panes:
+Splitting:
 
 - `<PRE>%` - vertically
 - `<PRE>"` - horizontally
 
-Switching panes:
+Layouting: 
+
+- `<PRE><SPACE>` - relayout panes
+- `<PRE>!` - convert pane into window
+- `:join-pane -t name` - join pane into window
+- `<PRE>z` - toggle pane zoom
+
+Switching:
 
 - `<PRE>q` - show pane numbers
 - `<PRE>q0..9` -  switch to pane
 - `<PRE>;` - switch to last active pane
 - `<PRE>{` - move the current pane left
 - `<PRE>}` - move the current pane right
-
-Other stuff:
-
 - `<PRE>x` - kill current pane
-- `<PRE>!` - convert pane into window
-- `:join-pane -t name` - join pane into window
-- `<PRE>z` - toggle pane zoom
 
-Resizing the current pane:
+Resizing:
 
 ```
 :resize-pane -D 10 
