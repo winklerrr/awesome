@@ -30,9 +30,12 @@ get_current_git_branch () {
 ##################################### PATHS ####################################
 
 NPM_PATH="$HOME/.npm-global/bin"
-if [[ -d "$NPM_PATH" ]] ; then
-    export PATH="$NPM_PATH:$PATH"
-    echo "> Added global NPM path ($NPM_PATH) to PATH env"
+if [[ -d "$NPM_PATH" ]]; then
+    # only add to path once
+    if [[ ":$PATH:" != *":$NPM_PATH:"* ]]; then
+        export PATH="$NPM_PATH:$PATH"
+        echo "> Added global NPM path ($NPM_PATH) to PATH env"
+    fi
 fi
 
 #################################### PLUGINS ###################################
