@@ -152,7 +152,6 @@ alias updg="upd && upg"
 alias v="vim"
 alias doch='sudo "$BASH" -c "$(history -p !!)"'
 
-
 # LIST DIRECTORY
 #   --almost-all to show all except `.` and `..`
 #   --color=always show colors
@@ -161,11 +160,23 @@ alias doch='sudo "$BASH" -c "$(history -p !!)"'
 #   -s show file size
 #   -S order by file size
 #   -h make size human readable
-alias l="/bin/ls --color=always -p"  
-alias la="l --almost-all"
+alias l="my_ls"  
 alias ll="l -l"  
+alias la="ll --almost-all"
 alias ls="ll -asSh"  
 
+# COUNT DIRS AND FILES
+# "! -name ." to exclude the current dir and only count subdirs
+alias count_dirs="find -maxdepth 1 -type d ! -name . | wc -l"
+alias count_files="find -maxdepth 1 -type f | wc -l"
+alias count_links="find -maxdepth 1 -type l | wc -l"
+
+alias count_info_dirs='echo "$(count_dirs) Dir(s)"'
+alias count_info_files='echo "$(count_files) File(s)"'
+alias count_info_links='echo "$(count_links) Link(s)"'
+
+# -e to interpolate \\t as tab
+alias count_info='echo -e \\t$(count_info_dirs)\\t\\t$(count_info_files)\\t\\t$(count_info_links)'
 
 # CHANGE DIR
 alias cd="my_cd"
@@ -311,6 +322,13 @@ alias tmuxconf="tmuxrc"
 my_cd () {
   improved_cd "$@"
   [[ $? -eq 0 ]] && l
+}
+
+my_ls () {
+  /bin/ls -p --color=always --group-directories-first "$@"
+  if [ ! -z "$1" ]; then
+    count_info
+  fi
 }
 
 my_mkdir () {
