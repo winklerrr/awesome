@@ -1,20 +1,21 @@
 # Awesome tmux Cheatsheet
 
-**Reminder:** `PRE` stands for the tmux prefix (normally `STRG`+`b`, maybe changed to `STRG`+`a`)
+**Reminder:** `<PRE>` stands for the tmux prefix (normally `<CTRL>b` aka. `<C-b>`, maybe changed to `<CTRL>a` aka. `<C-a>`)
 
 ## Basics
 
-- **Copy/Paste:** To select text and to paste from clipboard hold `SHIFT` while pressing `LEFT CLICK` or `RIGHT CLICK`
-- **Command line:** To enter the tmux command line, hit `PRE` and `:`
+- **Copy/Paste:** To select text and to paste from clipboard hold `<SHIFT>` while pressing `<LEFT CLICK>` or `<RIGHT CLICK>`
+- **Command line:** To enter the tmux command line, hit `<PRE>` and `:`
 
 
 ## Session management
 
-```
-tmux new -s name  # create new session with name
-tmux ls  # show all sessions
-tmux a  # append last session
-```
+- `tmux ls` (`<PRE>s`, `:ls`) - list all sessions
+- `tmux new [-s name]` (`:new`) - create a new session with `name`
+- `tmux attach [-t name]` (`:attach`) - attach to the last session or to the session with `name`
+- `tmux detach` (`<PRE>d`, `:detach`) - detach from the current session
+ 
+- `<PRE>(`, `<PRE>)` - switch to the next/previous session
 
 ## Window management
 
