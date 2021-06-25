@@ -20,12 +20,12 @@ ROOT_DIR="$(dirname "${THIS_DIR}")"
 
 ############################### INTERNAL FUNCTIONS #############################
 
-
 # RETURN THE CURRENT GIT BRANCH OR AN EMPTY STRING
 # https://medium.com/@thucnc/how-to-show-current-git-branch-with-colors-in-bash-prompt-380d05a24745
 get_current_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/<\1> /'
 }
+
 
 ##################################### PATHS ####################################
 
@@ -40,6 +40,7 @@ if [[ -d "$NPM_PATH" ]]; then
         export PATH="$NPM_PATH:$PATH"
     fi
 fi
+
 
 #################################### PLUGINS ###################################
 
@@ -79,7 +80,6 @@ if [[ -r "$GIT_HTTPS2SSH_FULL" ]]; then
 else
   echo "> Unable to find '${GIT_HTTPS2SSH}'"
 fi
-
 
 
 #################################### SETTINGS ##################################
