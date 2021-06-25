@@ -81,3 +81,16 @@ To check the exit status of the last command use bashes `$?` like so:
 ```
 echo $?
 ```
+
+**Pipeing into file and still showing console output** (Source: [askubuntu.com](https://askubuntu.com/questions/24953/using-grep-with-pipe-and-ampersand-to-filter-errors-from-find))
+
+To pipe some command output into a file and still be able to follow all the output in the console, use `tee` like so:
+
+```bash
+command |& tee output.txt     # to create a new file
+command |& tee -a output.txt  # to append to the file
+```
+
+If `|&` is used, command1’s standard error, in addition to its standard output, is connected to command2’s standard input through the pipe;
+it is shorthand for `2>&1 |`.
+This implicit redirection of the standard error to the standard output is performed after any redirections specified by the command.
