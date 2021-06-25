@@ -79,21 +79,25 @@ this_dir="$(cd "$(dirname "${BASH_SOURCE}")" &>/dev/null && pwd)"
 dotfiles_dir="$this_dir/dotfiles"
 echo "> Found the dotfiles in '$dotfiles_dir'"
 
-# install all scripts
+# install all dotfiles?
 declare install_all
 ask "> Do you want to install all dotfiles at once (bashrc, vimrc, inputrc, etc.)?" install_all
 
+# install dotfiles (src) in the appropriate system files (dst)
 #         dst file          command         src file
-install   ".profile"        "source"        "$HOME/.bashrc"
-install   ".bash_profile"   "source"        "$HOME/.bashrc"
 install   ".bashrc"         "source"        "$dotfiles_dir/bashrc"
 install   ".bashrc"         "bind -f"       "$dotfiles_dir/inputrc"
 install   ".vimrc"          "source"        "$dotfiles_dir/vimrc"
 install   ".tmux.conf"      "source-file"   "$dotfiles_dir/tmux.conf"
 
+# install .bashrc (src) in the automatically loaded system files (dst), good overview: https://superuser.com/a/183980/382387
+#         dst file          command         src file
+install   ".profile"        "source"        "$HOME/.bashrc"
+install   ".bash_profile"   "source"        "$HOME/.bashrc"
+
 echo "> Done installing dotfiles"
 
-# install tools
+# install useful tools?
 tools="git vim tmux tig xclip bash-completion"
 ask "> Do you want to install all necessary/recommended tools: $tools? (sudo needed)" ANSWER
 if [ "$ANSWER" = true ]; then
@@ -102,7 +106,7 @@ if [ "$ANSWER" = true ]; then
   echo "> Done installing tools"
 fi
 
-# check for git credentials
+# check for git credentials?
 ask "> Do you want to check if global git credentials are set? (git needed)" ANSWER
 if [ "$ANSWER" = true ]; then
   set +e  # when git is freshly installed the next command returns 1
@@ -128,7 +132,7 @@ if [ "$ANSWER" = true ]; then
   echo "> Done setting global git credentials: $name, $email"
 fi
 
-# set further git configs
+# set further git configs?
 ask "> Do you want to set VSCode as your default git editor, merge and diff tool? (VSCode needed)" ANSWER
 if [ "$ANSWER" = true ]; then
   git config --global core.editor "code --wait"
