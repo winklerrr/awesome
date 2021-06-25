@@ -10,23 +10,20 @@
 
 ## Session management
 
-- `tmux ls` (`<PRE>s`, `:ls`) - list all sessions
 - `tmux new [-s name]` (`:new`) - create a new session with `name`
 - `tmux attach [-t name]` (`:attach`) - attach to the last session or to the session with `name`
-- `tmux detach` (`<PRE>d`, `:detach`) - detach from the current session
- 
+- `<PRE>d`, `tmux detach` (`:detach`) - detach from the current session
+- `<PRE>s`, `tmux ls` (`:ls`) - list all sessions
 - `<PRE>(`, `<PRE>)` - switch to the next/previous session
+- `<PRE>$`, `tmux rename-session [-t name] name` - rename session
 
 ## Window management
 
-```
-PRE + c  # create new window
-PRE + &  # close current window
-
-PRE + p  # switch to previous window
-PRE + n  # switch to next window
-PRE + 0..9  # switch to window
-```
+- `<PRE>c` - create new window
+- `<PRE>&` - close current window
+- `<PRE>p` - switch to previous window
+- `<PRE>n` - switch to next window
+- `<PRE>0..9` - switch to window
 
 ## Pane management
 
