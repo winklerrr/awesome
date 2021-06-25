@@ -13,7 +13,6 @@
 
 - `tmux new [-s name]` (`:new`) - create a new session with `name`
 - `tmux attach [-t name]` (`:attach`) - attach to the last session or to the session with `name`
-
 - `<PRE>d`, `tmux detach` (`:detach`) - detach from the current session
 - `<PRE>s`, `tmux ls` (`:ls`) - list all sessions
 - `<PRE>$`, `tmux rename-session [-t name] name` - rename session
@@ -23,7 +22,6 @@
 
 - `<PRE>c` - create new window
 - `<PRE>&` - kill current window
-
 - `<PRE>p` - switch to previous window
 - `<PRE>n` - switch to next window
 - `<PRE>l` - switch to last window
@@ -39,8 +37,7 @@ Splitting panes:
 Switching panes:
 
 - `<PRE>q` - show pane numbers
-- `<PRE>q`+-0..9  # switch to pane
-
+- `<PRE>q0..9` -  switch to pane
 - `<PRE>;` - switch to last active pane
 
 Other stuff:
