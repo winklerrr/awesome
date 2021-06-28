@@ -166,7 +166,7 @@ alias doch='sudo "$BASH" -c "$(history -p !!)"'
 alias l="my_ls"  
 alias ll="l -l"  
 alias la="ll --almost-all"
-alias ls="ll -asSh"  
+alias ls="ll -AsSh"  
 
 # COUNT DIRS AND FILES
 # "! -name ." to exclude the current dir and only count subdirs
