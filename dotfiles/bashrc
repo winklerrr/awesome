@@ -211,6 +211,12 @@ alias 4.="....."
 alias 5.="......"
 alias 6.="......."
 
+alias .2="..."
+alias .3="...."
+alias .4="....."
+alias .5="......"
+alias .6="......."
+
 # SAVE AND LOAD DIR
 # quick way to set default start path, use '' to set alias literrally 
 alias current_dir="pwd | sed -e 's/ /\\ /'"
