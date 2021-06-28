@@ -255,6 +255,7 @@ alias gb="git branch"
 alias gbn="gcob"  # create a new branch
 alias gbd="git branch -d"  # delete branch
 
+alias gcl="git clone"
 alias gco="git checkout"
 alias gcob="git checkout -b"
 
