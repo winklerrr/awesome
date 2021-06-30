@@ -468,8 +468,13 @@ if [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] \
 
   if command -v tmux &> /dev/null; then 
     # only run tmux if it is installed
-    #exec tmux 
-    tmux a || tmux
+    # exec tmux 
+    if tmux ls; then
+      # there is still a session open
+      exec tmux a
+    else
+      exec tmux
+    fi
   fi
 fi
 
