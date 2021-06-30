@@ -140,8 +140,8 @@ alias c="clear"
 alias cp="cp -iv"
 alias mv="mv -iv"
 
-alias md="my_mkdir -p"
-alias mkdir="my_mkdir -pv"
+alias md="my_mkdir "
+alias mkdir="my_mkdir"
 alias rd="rmdir"
 
 alias grep="grep --color=auto"
@@ -344,9 +344,9 @@ my_ls () {
 
 my_mkdir () {
   if [ $# -eq 1 ]; then
-    /bin/mkdir $1 && cd $1
+    /bin/mkdir -p $1 && cd $1
   else
-    /bin/mkdir "$@"
+    /bin/mkdir -pv "$@"
   fi
 }
 
