@@ -163,10 +163,10 @@ alias doch='sudo "$BASH" -c "$(history -p !!)"'
 #   -s show file size
 #   -S order by file size
 #   -h make size human readable
-alias l="my_ls"  
-alias ll="l -l"  
-alias la="ll --almost-all"
-alias ls="ll -AsSh"  
+alias l="my_ls"
+alias ll="my_ls -l"     # list
+alias la="my_ls -lA"    # all
+alias ls="my_ls -lAsSh" # size 
 
 # COUNT DIRS AND FILES
 # "! -name ." to exclude the current dir and only count subdirs
@@ -337,9 +337,14 @@ my_cd () {
 
 my_ls () {
   /bin/ls -p --color=always --group-directories-first "$@"
-  if [ ! -z "$1" ]; then
-    count_info
-  fi
+
+  local OPTIND option
+  while getopts ":l" option; do
+    if [[ "$option" == "l" ]]; then
+      count_info
+    fi
+  done
+  shift $((OPTIND-1))
 }
 
 my_mkdir () {
