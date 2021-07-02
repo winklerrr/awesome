@@ -152,6 +152,7 @@ alias upd="sudo apt update"
 alias upg="sudo apt upgrade"
 alias updg="upd && upg"
 
+alias man="my_man"
 alias v="vim"
 alias doch='sudo "$BASH" -c "$(history -p !!)"'
 
@@ -345,6 +346,20 @@ my_ls () {
     fi
   done
   shift $((OPTIND-1))
+}
+
+my_man () {
+  case "$(type -t -- "$1")" in 
+
+    builtin|keyword)
+      help -m "$1" | less
+      ;;
+
+    *)
+      command man "$@" || (command info "$@" | less)
+      ;;
+
+  esac
 }
 
 my_mkdir () {
