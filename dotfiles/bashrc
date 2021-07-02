@@ -336,6 +336,13 @@ my_cd () {
   [[ $? -eq 0 ]] && l
 }
 
+my_less () {
+  output=$("$@")
+  if [[ ! -z "$output" ]]; then
+    printf '%s' "$output" | less
+  fi
+}
+
 my_ls () {
   /bin/ls -p --color=always --group-directories-first "$@"
 
@@ -352,11 +359,11 @@ my_man () {
   case "$(type -t -- "$1")" in 
 
     builtin|keyword)
-      help -m "$1" | less
+      command help -m "$1" | less
       ;;
 
     *)
-      command man "$@" || (command info "$@" | less)
+      command man "$@" || my_less command info "$@" 
       ;;
 
   esac
@@ -364,9 +371,9 @@ my_man () {
 
 my_mkdir () {
   if [ $# -eq 1 ]; then
-    /bin/mkdir -p $1 && cd $1
+    command mkdir -p $1 && cd $1
   else
-    /bin/mkdir -pv "$@"
+    command mkdir -pv "$@"
   fi
 }
 
