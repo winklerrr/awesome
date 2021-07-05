@@ -12,27 +12,20 @@
 
 ############################### INTERNAL VARIABLES #############################
 
-# PATH
+# PATHS
 THIS="$BASH_SOURCE"
 THIS_DIR="$(cd "$(dirname "${THIS}")" >/dev/null 2>&1 && pwd)"
 ROOT_DIR="$(dirname "${THIS_DIR}")"
-
-
-############################### INTERNAL FUNCTIONS #############################
-
-# RETURN THE CURRENT GIT BRANCH OR AN EMPTY STRING
-# https://medium.com/@thucnc/how-to-show-current-git-branch-with-colors-in-bash-prompt-380d05a24745
-get_current_git_branch () {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/<\1> /'
-}
 
 
 ##################################### PATHS ####################################
 
 # WORKAROUND FOR PERMISSION PROBLEM WITH GLOBALLY INSTALLED NODE PACKAGES
 # http://npm.github.io/installation-setup-docs/installing/a-note-on-permissions.html
+#
 #   1. mkdir ~/.npm-global
 #   2. npm config set prefix '~/.npm-global'
+#
 NPM_PATH="$HOME/.npm-global/bin"
 if [[ -d "$NPM_PATH" ]]; then
     # only add to path once
@@ -45,11 +38,11 @@ fi
 #################################### PLUGINS ###################################
 
 # AUTO COMPLETION
+# -r: if file exists and is readable
 AUTO_COMPLETION="bash_completion.sh"
 AUTO_COMPLETION_LINUX="/etc/profile.d/${AUTO_COMPLETION}"
 AUTO_COMPLETION_MAC="/usr/local/etc/profile.d/${AUTO_COMPLETION}"
 
-# -r: if file exists and is readable
 if [[ -r "$AUTO_COMPLETION_LINUX" ]]; then
   source "$AUTO_COMPLETION_LINUX"
 elif [[ -r "$AUTO_COMPLETION_MAC" ]]; then
@@ -58,6 +51,17 @@ else
   echo "> Unable to find '${AUTO_COMPLETION}'"
   echo "> Maybe you need to install it: 'sudo apt update && sudo apt install bash-completion -y'"
 fi
+
+# TODO: load all scripts from utils automatically
+load_utils () {
+  for util in $THIS_DIR/utils/*.sh; do
+    if [[ -f "$util" ]]; then 
+      source "$util"
+    else
+      echo "Unable to find '${util}'"
+    fi
+  done
+}
 
 
 # CD WITH HISTORY
@@ -80,6 +84,15 @@ if [[ -r "$GIT_HTTPS2SSH_FULL" ]]; then
 else
   echo "> Unable to find '${GIT_HTTPS2SSH}'"
 fi
+
+
+############################### INTERNAL FUNCTIONS #############################
+
+# RETURN THE CURRENT GIT BRANCH OR AN EMPTY STRING
+# https://medium.com/@thucnc/how-to-show-current-git-branch-with-colors-in-bash-prompt-380d05a24745
+get_current_git_branch () {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/<\1> /'
+}
 
 
 #################################### SETTINGS ##################################
