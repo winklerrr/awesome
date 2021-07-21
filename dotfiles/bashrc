@@ -345,6 +345,7 @@ elif grep -q -i microsoft /proc/version; then
   # on WSL
   alias copy="clip.exe"
   alias paste="powershell.exe Get-Clipboard"
+  alias open="explorer.exe"
 else
   # on normal linux
   alias copy="xclip -sel clip"
