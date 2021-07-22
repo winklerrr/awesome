@@ -1,4 +1,4 @@
-# The Awesome Repo
+# winklerrr's dotfiles
 ## Awesome Dotfiles, Cheatsheets & More!
 
 Keep in mind:
